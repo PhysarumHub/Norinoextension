@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google Consent Mode v2 — default (letto da localStorage prima di GTM) -->
+    <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var c=null;
+      try{var r=localStorage.getItem('norino_consent');if(r)c=JSON.parse(r);}catch(e){}
+      var a=c&&c.analytics?'granted':'denied';
+      var m=c&&c.marketing?'granted':'denied';
+      gtag('consent','default',{
+        ad_storage:m,
+        ad_user_data:m,
+        ad_personalization:m,
+        analytics_storage:a,
+        personalization_storage:m,
+        functionality_storage:'granted',
+        security_storage:'granted'
+      });
+    })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5J2RDB59');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Norino — Punto Rosa · Supporto Oncologico</title>
+    <meta name="description" content="Il protocollo Punto Rosa Norino: supporto estetico-emotivo durante la chemioterapia. Unico in Italia, con team OTI certificato, Wellness 3T IONIX e percorso personalizzato." />
+    <meta property="og:url" content="https://norino.it/punto-rosa" />
+    <meta property="og:title" content="Norino — Punto Rosa · Supporto Oncologico" />
+    <meta property="og:description" content="Il protocollo Punto Rosa Norino: supporto estetico-emotivo durante la chemioterapia. Unico in Italia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://norino.it/img/og-image-punto-rosa.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="Favicon.png" />
+    <link rel="apple-touch-icon" href="Favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J2RDB59"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand"><img src="img/logonorino.png" alt="Norino" class="nav__logo" /></a>
+        <ul class="nav__links">
+          <li><a href="#il-percorso">Il Percorso</a></li>
+          <li><a href="#risultati">Supporto</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="nav__cta">
+          <button class="btn btn--dark" data-action="open-consult">Consulenza gratuita</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══ HERO HEADER ═══ -->
+    <header class="hero-header hero-header--soft">
+      <div class="hero-header__text">
+        <div class="hero__award">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+          <span>Unico in Italia · Capelli, estetica e nutrizione integrati</span>
+        </div>
+        <h1 class="hero-header__title">
+          Il tuo percorso.<br />Con noi al tuo fianco.
+        </h1>
+        <p class="hero-header__sub">
+          Punto Rosa è il protocollo Norino dedicato alle pazienti oncologiche: supporto estetico-emotivo dal primo giorno di terapia fino alla ricrescita completa.
+        </p>
+        <div class="hero-header__cta">
+          <button class="btn btn--dark" data-action="open-consult">Prenota la consulenza gratuita</button>
+        </div>
+      </div>
+
+      <div class="hero-header__image">
+        <img alt="Punto Rosa Norino — supporto oncologico" width="480" height="640"
+             src="/img/NOR%20__%20Hero%20GL.png"
+             sizes="(max-width: 480px) 100vw, 480px" loading="eager" decoding="async" />
+      </div>
+
+      <div class="hero-pillars">
+        <div class="hero-pillar">
+          <div class="hero-pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span class="hero-pillar__label">Team multidisciplinare OTI</span>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="hero-pillar__label">Privacy e spazio riservato</span>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <span class="hero-pillar__label">Piscina, mare e sport ok</span>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="hero-pillar__label">Risultato 100% naturale</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ BANNER EDITORIALE ═══ -->
+    <section class="banner" id="il-percorso" aria-label="Il protocollo Punto Rosa">
+      <span class="banner__label">Punto Rosa · Norino</span>
+      <h2 class="banner__title">
+        Un protocollo unico in Italia,
+        con
+        <span class="banner__dot">
+          <img alt="Team OTI Norino" width="1920" height="1080"
+               src="/img/NOR%20__%20Hero%20GL.png"
+               sizes="66px" loading="lazy" decoding="async" />
+        </span>
+        <em>team certificato</em>
+        e tecnologia
+        <span class="banner__dot">
+          <img alt="Wellness 3T IONIX" width="800" height="590"
+               src="/img/NOR%20__%20Hero%20GL.png"
+               sizes="66px" loading="lazy" decoding="async" />
+        </span>
+        <em>Wellness 3T IONIX</em>
+      </h2>
+    </section>
+
+    <!-- ═══ BEFORE / AFTER SLIDER ═══ -->
+    <section class="ba-section" id="risultati" aria-label="Supporto prima e durante la terapia">
+      <div class="ba-header">
+        <span class="n-eyebrow">Prima &amp; Durante</span>
+        <h2 class="n-heading">La femminilità che <em>non si perde</em>.</h2>
+      </div>
+
+      <div id="baWrap" class="ba-wrap">
+        <img alt="Durante — Wellness semi-permanente Punto Rosa" width="1920" height="1080"
+             src="/img/NOR%20__%20Hero%20GL.png"
+             class="ba-after" sizes="(max-width: 720px) 90vw, 720px" loading="lazy" decoding="async" />
+        <div id="baLayer" class="ba-before-layer">
+          <img alt="Prima — inizio percorso oncologico" width="1920" height="1080"
+               src="/img/NOR%20__%20Hero%20GL.png"
+               sizes="(max-width: 720px) 90vw, 720px" loading="lazy" decoding="async" />
+        </div>
+        <div id="baDivider" class="ba-divider"></div>
+        <div id="baHandle" class="ba-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 3 12 9 6"></polyline>
+            <polyline points="15 6 21 12 15 18"></polyline>
+          </svg>
+        </div>
+        <div class="ba-label ba-label--prima">Prima</div>
+        <div class="ba-label ba-label--dopo">Durante</div>
+      </div>
+
+      <p class="n-caption">Trascina per confrontare · Wellness semi-permanente applicato prima della terapia</p>
+    </section>
+
+    <!-- ═══ SEZIONE SERVIZIO EDITORIALE ═══ -->
+    <section class="ext-split" aria-label="I servizi del percorso Punto Rosa">
+      <div class="ext-split__text">
+        <span class="n-eyebrow">Protocollo Punto Rosa</span>
+        <h2 class="ext-split__title">
+          Bellezza e cura.<br /><em>Anche durante la terapia.</em>
+        </h2>
+        <p class="ext-split__sub">
+          Punto Rosa unisce quattro professionalità in un unico protocollo: parrucchiere Punto Rosa certificato, estetista OTI diplomata, nutrizionista specializzata e counselor motivazionale. L'unico approccio in Italia che integra capelli, estetica, nutrizione e supporto emotivo.
+        </p>
+        <ul class="ext-split__features">
+          <li>
+            <span class="ext-feat__icon">⬡</span>
+            <div>
+              <strong>Wellness 3T IONIX Semi-permanente</strong>
+              <span>Innesto non adesivo e atossico — applicato prima della chemioterapia per protezione immediata e aspetto naturale</span>
+            </div>
+          </li>
+          <li>
+            <span class="ext-feat__icon">⬡</span>
+            <div>
+              <strong>Skincare &amp; Makeup Oncologico OTI</strong>
+              <span>Prodotti ipoallergenici certificati per viso e cuoio capelluto sensibilizzati dalla terapia</span>
+            </div>
+          </li>
+          <li>
+            <span class="ext-feat__icon">⬡</span>
+            <div>
+              <strong>Piscina, Mare, Sport: sempre consentiti</strong>
+              <span>Il risultato è 100% naturale e invisibile — nessuna limitazione nella vita quotidiana</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ext-split__img-wrap">
+        <img
+          src="/img/NOR%20__%20Hero%20GL.png"
+          alt="Punto Rosa Norino — cabina riservata per pazienti oncologiche"
+          width="800" height="1000"
+          loading="lazy" decoding="async" />
+        <div class="ext-split__tag">Prodotti ipoallergenici certificati</div>
+      </div>
+
+    </section>
+
+    <!-- ═══ HOTSPOT INTERATTIVO ═══ -->
+    <section class="hotspot-section" id="tecnologie" aria-label="Il team e la tecnologia Punto Rosa">
+      <div class="hotspot-box">
+        <div class="hotspot-wrap">
+          <img alt="Punto Rosa Norino — spazio dedicato alle pazienti oncologiche" width="1920" height="1080"
+               src="/img/NOR%20__%20Hero%20GL.png"
+               sizes="(max-width: 640px) 100vw, 90vw" loading="lazy" decoding="async" />
+
+          <button data-pop="pop1" aria-label="Dispositivo Wellness 3T IONIX" class="hs-btn" style="top: 32%; left: 58%">+</button>
+          <div id="pop1" class="hs-popup" style="top: 10%; left: 62%">
+            <button data-close="pop1" class="hs-close" aria-label="Chiudi">✕</button>
+            <span class="n-eyebrow">Tecnologia</span>
+            <h4 class="n-product-title">Wellness 3T IONIX</h4>
+            <p>Dispositivo semi-permanente non adesivo e atossico, progettato per cute sensibilizzata dalla chemioterapia. Garantisce protezione, comfort e un aspetto naturale durante tutta la terapia.</p>
+          </div>
+
+          <button data-pop="pop2" aria-label="Team multidisciplinare OTI" class="hs-btn" style="top: 48%; left: 44%">+</button>
+          <div id="pop2" class="hs-popup" style="top: 16%; right: 10%">
+            <button data-close="pop2" class="hs-close" aria-label="Chiudi">✕</button>
+            <span class="n-eyebrow">Team Certificato</span>
+            <h4 class="n-product-title">Team Multidisciplinare OTI</h4>
+            <p>Parrucchiere Punto Rosa certificato, estetista OTI diplomata, nutrizionista specializzata e counselor motivazionale. Quattro figure formate sui protocolli oncologici per accompagnarti in ogni fase del percorso.</p>
+          </div>
+
+          <button data-pop="pop3" aria-label="Spazio dedicato e privacy" class="hs-btn" style="top: 62%; left: 52%">+</button>
+          <div id="pop3" class="hs-popup" style="top: 36%; left: 55%">
+            <button data-close="pop3" class="hs-close" aria-label="Chiudi">✕</button>
+            <span class="n-eyebrow">Privacy &amp; Cura</span>
+            <h4 class="n-product-title">Spazio Riservato</h4>
+            <p>Appuntamenti flessibili in spazi dedicati esclusivamente alle pazienti Punto Rosa. Nessuna fretta, nessun giudizio: solo ascolto e supporto personalizzato, dal primo giorno fino alla ricrescita.</p>
+          </div>
+
+          <div id="hsOverlay" class="hs-overlay"></div>
+        </div>
+
+        <div class="hotspot-bar">
+          <div class="hotspot-bar__text">
+            <h3 class="n-subheading">Non sei sola in questo percorso.</h3>
+            <p>Punto Rosa nasce per preservare la tua femminilità e ridurre lo stress emotivo durante la terapia oncologica. Un team unito, una tecnologia certificata, uno spazio sicuro — tutto costruito per te.</p>
+          </div>
+          <button class="btn" data-action="open-consult">Prenota la consulenza gratuita →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TRENDS SLIDER — Testimonianze ═══ -->
+    <section class="trends" id="testimonianze" aria-label="Storie delle nostre pazienti">
+      <div class="trends__header">
+        <div>
+          <span class="n-eyebrow">Le loro storie</span>
+          <h2 class="n-heading">Pazienti che si sono <em>ritrovate</em>.</h2>
+        </div>
+        <div class="trends__nav">
+          <button class="trends__arrow" id="trendPrev" aria-label="Precedente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="trends__arrow" id="trendNext" aria-label="Successivo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="trends__track" id="trendsTrack">
+        <div class="trends__card">
+          <img alt="Punto Rosa — paziente durante la terapia con Wellness" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+        <div class="trends__card">
+          <img alt="Punto Rosa — risultato post chemioterapia" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+        <div class="trends__card">
+          <img alt="Punto Rosa — Microlinea a 3 mesi dalla fine della terapia" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+        <div class="trends__card">
+          <img alt="Punto Rosa — transizione a extension Glamour" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+        <div class="trends__card">
+          <img alt="Punto Rosa — skincare oncologica viso" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+        <div class="trends__card">
+          <img alt="Punto Rosa — sorriso ritrovato dopo il percorso" loading="lazy" decoding="async"
+               src="/img/NOR%20__%20Hero%20GL.png" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA FINALE ═══ -->
+    <section class="cta-final" aria-label="Prenota una consulenza Punto Rosa">
+      <div class="cta-final__inner">
+        <span class="cta-final__eyebrow">Consulenza Gratuita · Punto Rosa</span>
+        <h2 class="cta-final__title">
+          La bellezza non si mette<br />
+          in <em>pausa</em>.
+        </h2>
+        <p class="cta-final__sub">
+          Prenota una consulenza gratuita e riservata nei nostri saloni di Bergamo o Milano. Ti ascoltiamo, valutiamo insieme la fase del tuo percorso e progettiamo il supporto più adatto a te.
+        </p>
+        <div class="cta-final__actions">
+          <button class="btn btn--terra" data-action="open-consult">Prenota la consulenza gratuita</button>
+        </div>
+        <div class="cta-final__proof">
+          <div class="cta-final__stars">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.74 5.56 6.13.89-4.44 4.32 1.05 6.1L12 15.9l-5.48 2.97 1.05-6.1L3.13 8.45l6.13-.89L12 2z"/></svg>
+          </div>
+          <span class="cta-final__proof-text"><strong>4,9/5</strong> su Google &middot; 800+ recensioni &middot; Bergamo &amp; Milano</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TIMELINE — Le fasi del percorso Punto Rosa ═══ -->
+    <section class="tl-section" id="percorso" aria-label="Le fasi del percorso Punto Rosa">
+      <div class="tl-section__inner">
+
+        <div class="tl-header">
+          <span class="n-eyebrow">Il tuo percorso</span>
+          <h2 class="tl-header__title">Tre fasi, <em>un solo</em><br />obiettivo.</h2>
+          <p class="tl-header__sub">Dal primo giorno di terapia fino alla ricrescita: Punto Rosa ti accompagna in ogni passo.</p>
+        </div>
+
+        <div class="tl-track">
+          <div class="tl-line" aria-hidden="true"></div>
+
+          <!-- 1 LEFT -->
+          <div class="tl-item tl-item--left">
+            <div class="tl-half">
+              <div class="tl-body">
+                <span class="tl-body__year">Fase 1</span>
+                <h3 class="tl-title">Pre-trattamento</h3>
+                <p class="tl-text">Consulenza gratuita e applicazione del Wellness 3T IONIX semi-permanente, non adesivo e atossico, prima dell'inizio della terapia. Protezione immediata, aspetto naturale dal giorno uno.</p>
+              </div>
+            </div>
+            <div class="tl-node"><div class="tl-node__pill"><span>01</span></div></div>
+            <div class="tl-half tl-half--ghost"></div>
+          </div>
+
+          <!-- 2 RIGHT -->
+          <div class="tl-item tl-item--right">
+            <div class="tl-half tl-half--ghost"></div>
+            <div class="tl-node"><div class="tl-node__pill"><span>02</span></div></div>
+            <div class="tl-half">
+              <div class="tl-body">
+                <span class="tl-body__year">Fase 2</span>
+                <h3 class="tl-title">Durante la Terapia</h3>
+                <p class="tl-text">Manutenzione igienica ogni 3 settimane. Makeup e skincare oncologica con prodotti ipoallergenici per viso e cuoio capelluto. Supporto del counselor e della nutrizionista per contrastare nausea e stanchezza.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 LEFT featured -->
+          <div class="tl-item tl-item--left tl-item--featured">
+            <div class="tl-half">
+              <div class="tl-body">
+                <span class="tl-body__year">Fase 3a</span>
+                <h3 class="tl-title">Post-terapia · 3 cm di ricrescita</h3>
+                <p class="tl-text">Quando la ricrescita raggiunge i 3 cm, si passa a Microlinea One Shot o Quickkies per accompagnare questa prima fase con volume naturale e invisibile.</p>
+                <span class="tl-badge">✦ Transizione guidata dal team</span>
+              </div>
+            </div>
+            <div class="tl-node"><div class="tl-node__pill"><span>03</span></div></div>
+            <div class="tl-half tl-half--ghost"></div>
+          </div>
+
+          <!-- 4 RIGHT featured -->
+          <div class="tl-item tl-item--right tl-item--featured">
+            <div class="tl-half tl-half--ghost"></div>
+            <div class="tl-node"><div class="tl-node__pill"><span>04</span></div></div>
+            <div class="tl-half">
+              <div class="tl-body">
+                <span class="tl-body__year">Fase 3b</span>
+                <h3 class="tl-title">Post-terapia · 10 cm</h3>
+                <p class="tl-text">Quando la ricrescita raggiunge i 10 cm, si transita alle Glamour Extension standard di Norino. Il percorso si chiude — e ne inizia uno nuovo, fatto di look e libertà ritrovata.</p>
+                <span class="tl-badge">♡ Punto Rosa completo</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-section" id="faq" aria-label="Domande frequenti su Punto Rosa">
+      <div class="faq-section__inner">
+        <div class="faq-section__header">
+          <span class="n-eyebrow">FAQ</span>
+          <h2 class="faq-section__title">Domande frequenti</h2>
+        </div>
+        <div class="faq-list" id="faqList">
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">Il Wellness 3T IONIX è sicuro durante la chemioterapia?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">Sì. Il dispositivo è non adesivo, atossico e completamente compatibile con qualsiasi terapia farmacologica. I protocolli OTI sono stati sviluppati specificamente per cute sensibilizzata dai trattamenti oncologici.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">Quando è il momento giusto per iniziare il percorso Punto Rosa?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">Idealmente prima dell'inizio della chemioterapia, così il Wellness semi-permanente viene applicato quando il capello è ancora presente. Tuttavia possiamo supportarti anche durante o dopo la terapia: ogni fase ha le sue soluzioni.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">Il team è formato sull'oncologia?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">Sì. Tutto lo staff Punto Rosa ha ricevuto una formazione specifica secondo i protocolli OTI (Oncotological Touch Institute). Il team include anche una nutrizionista anti-infiammatoria e un counselor per il supporto emotivo.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">Posso fare sport, andare in piscina o al mare con il Wellness applicato?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">Sì, senza alcuna limitazione. Il Wellness 3T IONIX è 100% naturale e invisibile: piscina, mare e sport sono pienamente consentiti. Puoi vivere la tua quotidianità esattamente come prima.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">In cosa è unico Punto Rosa rispetto ad altri servizi per pazienti oncologiche?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">È l'unico protocollo in Italia che integra in un unico percorso: capelli (parrucchiere certificato + Wellness 3T IONIX), estetica oncologica (estetista OTI diplomata), nutrizione anti-infiammatoria e supporto motivazionale. Non solo bellezza: un'alleanza completa per il benessere totale.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__btn" aria-expanded="false">
+              <span class="faq-item__q">Dove si trovano i vostri saloni?</span>
+              <span class="faq-item__icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-item__body"><div class="faq-item__body-inner">
+              <p class="faq-item__a">Siamo presenti a <strong>Bergamo</strong> (centro storico) e a <strong>Milano</strong> (zona Brera). Gli appuntamenti Punto Rosa sono flessibili e pianificati in base alle tue esigenze e ai cicli di terapia.</p>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer" id="contatti">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-name"><img src="img/logonorino.png" alt="Norino" class="footer__logo" /></div>
+          <p>Punto Rosa: supporto estetico-emotivo per pazienti oncologiche. Unico in Italia, con team OTI certificato.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="index.html">Extension capelli</a></li>
+            <li><a href="diradamento.html">Infoltimento</a></li>
+            <li><a href="punto-rosa.html">Punto Rosa</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Informazioni</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#il-metodo">Il metodo Norino</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Legale</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="termini.html">Termini e condizioni</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Norino — Tutti i diritti riservati</span>
+        <div class="footer__socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══ STICKY CTA — mobile ═══ -->
+    <div class="sticky-cta">
+      <button class="btn btn--dark" data-action="open-consult">Prenota la consulenza gratuita</button>
+    </div>
+
+    <!-- ═══ POPUP CONSULENZA — multi-step ═══ -->
+    <div class="consult-overlay" id="consultOverlay" role="dialog" aria-modal="true" aria-labelledby="consultTitle">
+      <div class="consult-modal">
+        <button class="consult-modal__close" data-action="close-consult" aria-label="Chiudi">✕</button>
+
+        <div class="consult-progress">
+          <div class="consult-progress__dot active" data-step-dot="1"></div>
+          <div class="consult-progress__dot" data-step-dot="2"></div>
+          <div class="consult-progress__dot" data-step-dot="3"></div>
+        </div>
+
+        <span class="consult-modal__eyebrow" id="consultEyebrow">Passo 1 di 3</span>
+        <h2 class="consult-modal__title" id="consultTitle">Scegli il salone.</h2>
+        <p class="consult-modal__sub" id="consultSub">Seleziona la sede più vicina a te.</p>
+
+        <form id="consult-form" novalidate>
+
+          <!-- Step 1: Salone -->
+          <div class="consult-step active" data-step="1">
+            <div class="consult-salon-grid">
+              <button type="button" class="consult-salon-card" data-salon="bergamo" data-action="select-salon">
+                <div class="consult-salon-card__icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <strong>Bergamo</strong>
+                <span>Centro storico</span>
+              </button>
+              <button type="button" class="consult-salon-card" data-salon="milano" data-action="select-salon">
+                <div class="consult-salon-card__icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <strong>Milano</strong>
+                <span>Zona Brera</span>
+              </button>
+            </div>
+            <input type="hidden" id="cf-salon" name="salone" />
+          </div>
+
+          <!-- Step 2: Dati personali -->
+          <div class="consult-step" data-step="2">
+            <div class="consult-form__row">
+              <div class="consult-form__field">
+                <label for="cf-nome">Nome <span>✱</span></label>
+                <input type="text" id="cf-nome" name="nome" placeholder="Nome" autocomplete="given-name" />
+              </div>
+              <div class="consult-form__field">
+                <label for="cf-cognome">Cognome <span>✱</span></label>
+                <input type="text" id="cf-cognome" name="cognome" placeholder="Cognome" autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="consult-form__field">
+              <label for="cf-tel">Telefono <span>✱</span></label>
+              <input type="tel" id="cf-tel" name="telefono" placeholder="+39 000 000 0000" autocomplete="tel" />
+            </div>
+            <div class="consult-form__field">
+              <label for="cf-email">Email <span>✱</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="nome@email.com" autocomplete="email" />
+            </div>
+            <div class="consult-step-actions">
+              <button type="button" class="consult-nav-back" data-action="consult-step" data-step="1">← Indietro</button>
+              <button type="button" class="consult-nav-next" data-action="consult-step" data-step="3">Continua →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Consensi -->
+          <div class="consult-step" data-step="3">
+            <span class="consult-form__check-group-label">Privacy <span>✱</span></span>
+            <div class="consult-form__check">
+              <input type="checkbox" id="cf-privacy" name="privacy" />
+              <label for="cf-privacy">Acconsento al trattamento dei miei dati e dichiaro di aver preso visione dell'<a href="privacy-policy.html">informativa privacy</a></label>
+            </div>
+            <span class="consult-form__check-group-label">Marketing <span>✱</span></span>
+            <div class="consult-form__check">
+              <input type="checkbox" id="cf-marketing" name="marketing" />
+              <label for="cf-marketing">Acconsento al trattamento dei miei dati personali per finalità di marketing e per ricevere informazioni sulle promozioni</label>
+            </div>
+            <div class="consult-step-actions">
+              <button type="button" class="consult-nav-back" data-action="consult-step" data-step="2">← Indietro</button>
+              <button type="submit" class="consult-form__submit">Prenota ora →</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/cookie-consent.js" defer></script>
+  </body>
+</html>

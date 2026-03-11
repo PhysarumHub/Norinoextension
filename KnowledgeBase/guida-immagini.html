@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guida alle immagini — Norino Website</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f4f0;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    .doc-header {
+      background: #1a1a1a;
+      color: #f5f4f0;
+      padding: 48px 32px 40px;
+      border-bottom: 4px solid #c8a97a;
+    }
+    .doc-header__eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #c8a97a;
+      margin-bottom: 10px;
+    }
+    .doc-header h1 {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .doc-header p {
+      font-size: 15px;
+      color: #aaa;
+      max-width: 640px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #c8a97a;
+      margin: 56px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .section-title:first-of-type { margin-top: 0; }
+
+    /* ── CARD GRID ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card-grid--wide {
+      grid-template-columns: 1fr;
+    }
+
+    /* ── SINGLE CARD ── */
+    .img-card {
+      background: #fff;
+      border: 1px solid #e0ddd6;
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .img-card__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .img-card__num {
+      width: 26px;
+      height: 26px;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .img-card__label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .img-card__path {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      background: #f0ede6;
+      color: #7a5c2a;
+      padding: 6px 10px;
+      border-radius: 5px;
+      word-break: break-all;
+    }
+    .img-card__desc {
+      font-size: 13.5px;
+      color: #444;
+    }
+    .img-card__spec {
+      font-size: 12px;
+      color: #777;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .tag--size   { background: #e8f4e8; color: #2d6a2d; }
+    .tag--ratio  { background: #e8eef8; color: #1a3d7c; }
+    .tag--format { background: #fdf0e0; color: #8a4a00; }
+    .tag--tip    { background: #fdf4f4; color: #842020; }
+    .tag--ok     { background: #f0fdf4; color: #15803d; }
+
+    /* ── META CARDS ── */
+    .img-card--meta {
+      border-left: 4px solid #c8a97a;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .note-box {
+      background: #fffbf2;
+      border: 1px solid #f0d8a0;
+      border-left: 4px solid #c8a97a;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 13.5px;
+      color: #5a4020;
+    }
+    .note-box strong { color: #3a2800; }
+
+    /* ── INDEX PILLS ── */
+    .index-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 40px;
+    }
+    .index-bar a {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      color: #444;
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+    .index-bar a:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+    /* ── BEFORE/AFTER SPECIAL ── */
+    .ba-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .ba-demo .img-card { border-color: #b8d0b8; }
+    .ba-demo .img-card:first-child { border-color: #d0b8b8; }
+
+    /* ── HOTSPOT MAP ── */
+    .hs-map {
+      background: #fff;
+      border: 1px solid #e0ddd6;
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .hs-map h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .hs-map ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .hs-map li { font-size: 13.5px; color: #444; display: flex; gap: 10px; }
+    .hs-map li::before {
+      content: "+";
+      width: 22px; height: 22px;
+      background: #1a1a1a; color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Icons */
+    .icon { opacity: .6; }
+
+    @media (max-width: 600px) {
+      .ba-demo { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="doc-header">
+  <p class="doc-header__eyebrow">Norino Website — Documentazione tecnica</p>
+  <h1>Guida alle immagini del sito</h1>
+  <p>Documento di riferimento per il team creativo. Per ogni riquadro immagine del sito viene indicato il soggetto fotografico da usare, le dimensioni consigliate, il percorso file e i requisiti tecnici.</p>
+</div>
+
+<div class="container">
+
+  <!-- INDEX -->
+  <div class="index-bar">
+    <a href="#meta">Logo &amp; Favicon</a>
+    <a href="#og">OG / Social</a>
+    <a href="#hero">Hero Gallery</a>
+    <a href="#avatars">Avatar Clienti</a>
+    <a href="#banner">Banner Titolo</a>
+    <a href="#ba">Prima / Dopo</a>
+    <a href="#ext">Extension Split</a>
+    <a href="#hotspot">Hotspot</a>
+    <a href="#trends">Trends Slider</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       1. LOGO & FAVICON
+  ══════════════════════════════════ -->
+  <p class="section-title" id="meta">1 — Logo &amp; Favicon</p>
+  <div class="card-grid">
+
+    <div class="img-card img-card--meta">
+      <div class="img-card__header">
+        <div class="img-card__num">L</div>
+        <span class="img-card__label">Logo — Navbar &amp; Footer</span>
+      </div>
+      <div class="img-card__path">img/logonorino.png</div>
+      <p class="img-card__desc">
+        Logo Norino su sfondo trasparente, in versione chiara (scritte bianche o avorio) perché viene mostrato sia sulla navbar scura che sul footer scuro.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">Largh. 160–200 px</span>
+        <span class="tag tag--format">PNG trasparente</span>
+        <span class="tag tag--tip">Versione light (sfondo scuro)</span>
+      </div>
+    </div>
+
+    <div class="img-card img-card--meta">
+      <div class="img-card__header">
+        <div class="img-card__num">F</div>
+        <span class="img-card__label">Favicon</span>
+      </div>
+      <div class="img-card__path">Favicon.png</div>
+      <p class="img-card__desc">
+        Icona quadrata del brand — un monogramma "N" stilizzato o il simbolo del logo Norino. Deve essere leggibile a dimensioni molto piccole (16×16px).
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">512×512 px (ridimensionata automaticamente)</span>
+        <span class="tag tag--format">PNG trasparente</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       2. OG IMAGE
+  ══════════════════════════════════ -->
+  <p class="section-title" id="og">2 — Immagine OG (Social Share)</p>
+  <div class="card-grid">
+
+    <div class="img-card img-card--meta">
+      <div class="img-card__header">
+        <div class="img-card__num">OG</div>
+        <span class="img-card__label">Open Graph &amp; Twitter Card</span>
+      </div>
+      <div class="img-card__path">img/og-image.jpg</div>
+      <p class="img-card__desc">
+        Immagine che appare quando il sito viene condiviso su WhatsApp, Facebook, Instagram Stories, ecc. Deve mostrare il logo Norino + una bella chioma con extension, con eventuale scritta "Hair Extensions" o claim del brand. Sfondo elegante, colori caldi.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1200×630 px</span>
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--tip">Testo importante al centro — i bordi vengono tagliati su mobile</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       3. HERO GALLERY
+  ══════════════════════════════════ -->
+  <p class="section-title" id="hero">3 — Hero Gallery (9 foto)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:20px;">
+    La gallery in alto a destra dell'hero è composta da <strong>3 colonne × 3 foto ciascuna</strong>. Le colonne si scorrono verticalmente in modo indipendente creando un effetto dinamico. Le foto devono essere coordinate nello stile ma variare per soggetto.
+  </p>
+
+  <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-bottom:12px;">Colonna 1 — Risultati classici</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">1</div>
+        <span class="img-card__label">Risultato principale (immagine grande)</span>
+      </div>
+      <p class="img-card__desc">
+        <strong>Foto principale "prima" o risultato frontale.</strong> Donna con capelli lunghi e voluminosi grazie alle extension — inquadratura dalla spalla in su, busto frontale o tre quarti. Capelli chiari o castani. Sfondo neutro/studio.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">500×564 px</span>
+        <span class="tag tag--ratio">Ratio ~0.89 (quasi quadrato)</span>
+        <span class="tag tag--ok">loading: eager (caricamento immediato)</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">2</div>
+        <span class="img-card__label">Vista laterale</span>
+      </div>
+      <p class="img-card__desc">
+        Profilo laterale o tre quarti. Mette in risalto il volume e la lunghezza della chioma. Capelli mossi o lisci. Luce naturale.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">400×300 px</span>
+        <span class="tag tag--ratio">Ratio 4:3 (orizzontale)</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">3</div>
+        <span class="img-card__label">Dettaglio ciocche</span>
+      </div>
+      <p class="img-card__desc">
+        Close-up ravvicinato delle ciocche o del punto di attacco. Mostra la cura e la qualità del capello europeo. Sfondo sfumato (bokeh).
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">400×300 px</span>
+        <span class="tag tag--ratio">Ratio 4:3</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;margin:20px 0 12px;">Colonna 2 — Volume e texture</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">4</div>
+        <span class="img-card__label">Chioma voluminosa</span>
+      </div>
+      <p class="img-card__desc">
+        Inquadratura frontale che valorizza il volume totale della chioma. La donna può guardare in camera o di lato. Capelli sciolti e abbondanti, stile glamour/editoriale.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">500×564 px</span>
+        <span class="tag tag--ratio">Ratio ~0.89</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">5</div>
+        <span class="img-card__label">Dettaglio ciocche singole</span>
+      </div>
+      <p class="img-card__desc">
+        Macro delle singole ciocche che mostrano la lucentezza e la consistenza del capello europeo. Può includere la mano del parrucchiere che sistema i capelli.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">400×300 px</span>
+        <span class="tag tag--ratio">Ratio 4:3</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">6</div>
+        <span class="img-card__label">Riccio naturale</span>
+      </div>
+      <p class="img-card__desc">
+        Donna con capelli ricci o mossi naturalmente con le extension. Mostra la versatilità del prodotto: non solo capelli lisci ma anche texture mosse.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">500×564 px</span>
+        <span class="tag tag--ratio">Ratio ~0.89</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;margin:20px 0 12px;">Colonna 3 — Lifestyle e applicazione</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">7</div>
+        <span class="img-card__label">Mosso naturale (lifestyle)</span>
+      </div>
+      <p class="img-card__desc">
+        Foto lifestyle — donna in movimento, capelli al vento o in un contesto naturale (all'aperto, luce solare). Trasmette leggerezza e naturalezza del prodotto.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">500×564 px</span>
+        <span class="tag tag--ratio">Ratio ~0.89</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">8</div>
+        <span class="img-card__label">Applicazione in salon</span>
+      </div>
+      <p class="img-card__desc">
+        Scatto nel salone durante l'applicazione delle extension: il parrucchiere al lavoro, mani precise, attrezzatura Hairdreams visibile. Atmosfera professionale e rilassante.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">400×300 px</span>
+        <span class="tag tag--ratio">Ratio 4:3</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">9</div>
+        <span class="img-card__label">Risultato finale (wow factor)</span>
+      </div>
+      <p class="img-card__desc">
+        La foto "più bella" della gallery — il risultato finale spettacolare. Capelli lunghi, lucidi, perfetti. Inquadratura dalla testa alle spalle. Deve colpire a primo impatto.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">500×564 px</span>
+        <span class="tag tag--ratio">Ratio ~0.89</span>
+        <span class="tag tag--tip">Immagine più d'impatto di tutta la gallery</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Nota sulla coerenza visiva:</strong> Tutte e 9 le foto della gallery devono condividere lo stesso stile fotografico (illuminazione, post-produzione, sfondo). Si consiglia uno sfondo neutro (bianco, beige, grigio chiaro) per le foto in studio, e toni caldi coerenti per quelle lifestyle.
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       4. AVATAR CLIENTI
+  ══════════════════════════════════ -->
+  <p class="section-title" id="avatars">4 — Avatar Clienti (social proof)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Tre piccole foto circolari sovrapposte accanto al testo "500+ clienti soddisfatte". Sono parte del blocco di riprova sociale nell'hero.
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">A1</div>
+        <span class="img-card__label">Avatar cliente 1</span>
+      </div>
+      <p class="img-card__desc">
+        Foto di una cliente reale soddisfatta (con consenso firmato), ritratto ravvicinato sul viso, sorridente. Capelli con extension visibili. Appartenenza demografica variata tra i 3 avatar.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">80×80 px</span>
+        <span class="tag tag--ratio">Quadrato — verrà ritagliato circolare via CSS</span>
+        <span class="tag tag--format">JPG o PNG</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">A2</div>
+        <span class="img-card__label">Avatar cliente 2</span>
+      </div>
+      <p class="img-card__desc">
+        Seconda cliente reale. Stessa impostazione: viso sorridente, capelli ben visibili. Tono di capelli diverso dal primo avatar per mostrare varietà.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">80×80 px</span>
+        <span class="tag tag--ratio">Quadrato — circolare via CSS</span>
+        <span class="tag tag--format">JPG o PNG</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">A3</div>
+        <span class="img-card__label">Avatar cliente 3</span>
+      </div>
+      <p class="img-card__desc">
+        Terza cliente reale. Varietà di età, colore di capelli o stile rispetto alle prime due. Tutti e tre devono trasmettere autenticità — evitare foto stock.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">80×80 px</span>
+        <span class="tag tag--ratio">Quadrato — circolare via CSS</span>
+        <span class="tag tag--tip">Preferire foto reali di clienti, non stock</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       5. BANNER TITOLO (inline)
+  ══════════════════════════════════ -->
+  <p class="section-title" id="banner">5 — Banner "Il Metodo Norino" (immagini nel titolo)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Nel banner editoriale il testo del titolo contiene due piccole immagini circolari integrate tra le parole, come decorazioni visive inline.
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B1</div>
+        <span class="img-card__label">Inline — Hairdreams</span>
+      </div>
+      <p class="img-card__desc">
+        Piccola foto circolare inserita nel titolo accanto alla parola <em>"Hairdreams"</em>. Può essere il logo Hairdreams, una foto ravvicinata del macchinario laser, o il sigillo del partner certificato. Sfondo scuro preferibile per coerenza col banner.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 1920×1080 px</span>
+        <span class="tag tag--ratio">Formato orizzontale native — verrà scalato</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B2</div>
+        <span class="img-card__label">Inline — Color Matching Digitale</span>
+      </div>
+      <p class="img-card__desc">
+        Piccola foto circolare accanto alle parole <em>"digitale"</em>. Deve richiamare il color matching: una ruota dei colori, una palette di ciocche campione, o uno schermo con l'analisi digitale del colore.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 800×590 px</span>
+        <span class="tag tag--tip">Colore/texture che richiami la palette capelli</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       6. PRIMA / DOPO
+  ══════════════════════════════════ -->
+  <p class="section-title" id="ba">6 — Slider Prima / Dopo</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Un cursore interattivo che permette all'utente di scorrere tra la foto "Prima" e la foto "Dopo". <strong>Devono essere rigorosamente della stessa persona, stessa inquadratura, stessa sessione fotografica</strong> — solo i capelli cambiano.
+  </p>
+  <div class="ba-demo">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">P</div>
+        <span class="img-card__label">PRIMA — Capelli naturali</span>
+      </div>
+      <p class="img-card__desc">
+        La cliente <em>prima</em> dell'applicazione. Capelli naturali, probabilmente corti o poco voluminosi. Stessa posa e sfondo della foto "Dopo". Espressione neutra o sorriso contenuto.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--tip">STESSA identica inquadratura della foto "Dopo"</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">D</div>
+        <span class="img-card__label">DOPO — Chioma con extension</span>
+      </div>
+      <p class="img-card__desc">
+        La stessa cliente <em>dopo</em> l'applicazione. Chioma lunga, voluminosa e splendente. Posa identica alla foto "Prima" per massimizzare l'effetto del confronto. È l'immagine in primo piano.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--ok">Trasformazione chiaramente visibile e d'impatto</span>
+      </div>
+    </div>
+  </div>
+  <div class="note-box">
+    <strong>Importante:</strong> Lo slider Prima/Dopo è uno degli elementi più persuasivi del sito. Investire in una sessione fotografica professionale dedicata solo a questa coppia di immagini è fortemente consigliato. La trasformazione deve essere evidente e credibile.
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       7. EXTENSION SPLIT
+  ══════════════════════════════════ -->
+  <p class="section-title" id="ext">7 — Sezione "Extension" (immagine grande)</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">E</div>
+        <span class="img-card__label">Foto Extension principale</span>
+      </div>
+      <p class="img-card__desc">
+        Foto verticale di grande impatto — donna con capelli lunghissimi e naturali con le extension. Inquadratura dalla testa fino alla vita o oltre. Deve essere la foto più "aspirazionale" del sito: capelli perfetti, luce cinematografica, sguardo fiducioso.
+        <br /><br />Accanto alla foto è presente il badge <strong>"100% capelli naturali"</strong>: il soggetto deve trasmettere autenticità e lusso.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">800×1000 px</span>
+        <span class="tag tag--ratio">Ratio 4:5 (verticale)</span>
+        <span class="tag tag--tip">La foto più alta di qualità del sito — deve essere "wow"</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       8. HOTSPOT
+  ══════════════════════════════════ -->
+  <p class="section-title" id="hotspot">8 — Sezione Hotspot Interattivo</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Una foto larga con tre punti cliccabili (+) sovrapposti che aprono popup informativi sulla materia prima, la tecnologia e il color matching.
+  </p>
+  <div class="hs-map">
+    <h4>Posizione dei 3 hotspot sulla foto</h4>
+    <ul>
+      <li><strong>Hotspot 1 (top:32%, left:58%)</strong> — <em>"Capelli Europei Selezionati"</em>: il punto dovrebbe cadere su una ciocca di capelli ben visibile, idealmente in un punto che mostri la qualità e la lucentezza del capello.</li>
+      <li><strong>Hotspot 2 (top:48%, left:44%)</strong> — <em>"Hairdreams Laser"</em>: il punto dovrebbe cadere sull'area del legame/applicazione, dove il parrucchiere applica la cheratina o il dispositivo laser è in contatto con il capello.</li>
+      <li><strong>Hotspot 3 (top:62%, left:52%)</strong> — <em>"Color Matching Digitale"</em>: il punto dovrebbe cadere su un'area che mostri la sfumatura e il colore preciso delle extension, magari dove il tono delle extension si integra con i capelli naturali.</li>
+    </ul>
+  </div>
+  <div style="margin-top:16px">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">H</div>
+        <span class="img-card__label">Foto Hotspot — Glamour Extension</span>
+      </div>
+      <p class="img-card__desc">
+        Foto di grande formato orizzontale che mostra una donna durante o dopo l'applicazione in salon. Ideale: il parrucchiere intento nell'applicazione con la cliente seduta, capelli ben visibili. In alternativa: close-up dal collo alle spalle con le extension chiaramente visibili. Deve avere zone "leggibili" dove posizionare i 3 punti interattivi.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--tip">I 3 hotspot si posizionano in automatico — verificare che cadano su zone significative</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       9. TRENDS SLIDER
+  ══════════════════════════════════ -->
+  <p class="section-title" id="trends">9 — Trends Slider (6 schede)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Sezione "I look del momento" — uno slider orizzontale con 6 card fotografiche che mostrano le ultime tendenze. Le foto devono essere aggiornate stagionalmente.
+  </p>
+  <div class="card-grid">
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T1</div>
+        <span class="img-card__label">Extension bionde lunghe</span>
+      </div>
+      <p class="img-card__desc">
+        Donna con capelli biondi lunghi, lisci o leggermente mossi. Look luminoso, estivo. Classico, sempre in tendenza.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T2</div>
+        <span class="img-card__label">Chioma voluminosa castana</span>
+      </div>
+      <p class="img-card__desc">
+        Capelli castani o marroni con grande volume, stile anni '70 o contemporaneo. Mostra il potenziale di volume delle extension anche su toni scuri.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T3</div>
+        <span class="img-card__label">Riccio naturale</span>
+      </div>
+      <p class="img-card__desc">
+        Look con capelli ricci o ad onde definite. Mostra la versatilità delle extension Norino: non solo capelli lisci. Tendenza curly hair in crescita.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T4</div>
+        <span class="img-card__label">Extension lisce — dettaglio</span>
+      </div>
+      <p class="img-card__desc">
+        Close-up ravvicinato su capelli lisci perfetti, con luce che esalta la lucentezza sericea. Foto editoriale/beauty.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T5</div>
+        <span class="img-card__label">Look da passerella</span>
+      </div>
+      <p class="img-card__desc">
+        Stile high-fashion o editoriale — donna con acconciatura elaborata e extension lunghe in un contesto elegante (evento, sfilata, shooting). Trasmette aspirazione e lusso.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">T6</div>
+        <span class="img-card__label">Styling finale</span>
+      </div>
+      <p class="img-card__desc">
+        L'ultimo sguardo: una foto di acconciatura finita, capelli perfettamente in piega, sorriso soddisfatto. Ideale se scattata in salone subito dopo il servizio.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--ratio">Preferibile verticale 3:4 o quadrato</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note-box" style="margin-top:24px;">
+    <strong>Formato consigliato per tutte le Trends card:</strong> Scattare le foto in verticale (orientamento ritratto) con soggetto centrato. Le card vengono visualizzate nello slider come riquadri alti — un formato 3:4 (es. 600×800 px) funziona meglio di un formato orizzontale.
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       RIEPILOGO
+  ══════════════════════════════════ -->
+  <p class="section-title">Riepilogo — Tutti i file immagine</p>
+  <div class="img-card card-grid--wide" style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#f0ede6;text-align:left;">
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">#</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Percorso file</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Dimensioni</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Soggetto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">L</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/logonorino.png</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">~200px largh.</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Logo Norino (trasparente, chiaro)</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">F</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">Favicon.png</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">512×512 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Icona brand / monogramma N</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">OG</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/og-image.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1200×630 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Immagine social share (logo + chioma)</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">1–9</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/hero-[01÷09].jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">500×564 o 400×300</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Gallery hero — 9 foto coordinate</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">A1–A3</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/avatar-[1÷3].jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">80×80 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Ritratti clienti reali (social proof)</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">B1</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/banner-hairdreams.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Inline titolo — Hairdreams</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">B2</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/banner-colormatching.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×590 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Inline titolo — color matching</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">P</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/ba-prima.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Dopo — capelli naturali</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">D</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/ba-dopo.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Dopo — con extension</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">E</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/ext-principale.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×1000 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Sezione extension — foto aspirazionale</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">H</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/hotspot-glamour.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hotspot interattivo — applicazione in salon</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;">T1–T6</td><td style="padding:8px 12px;font-family:monospace;color:#7a5c2a;">img/trend-[01÷06].jpg</td><td style="padding:8px 12px;">600×800 px</td><td style="padding:8px 12px;">Trends slider — 6 look diversi</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box" style="margin-top:20px;">
+    <strong>Totale immagini da produrre: ~22 foto.</strong> I percorsi file indicati nella tabella sono suggerimenti organizzativi — assicurarsi di aggiornare anche gli attributi <code>src</code> nell'HTML dopo aver rinominato i file reali. Tutti i file devono essere ottimizzati (WebP o JPG progressivo, compressione ≥75%) prima del caricamento in produzione.
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

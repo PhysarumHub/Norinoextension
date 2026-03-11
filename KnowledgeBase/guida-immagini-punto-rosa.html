@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guida alle immagini — Punto Rosa · Norino</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f9f5f6; color: #1a1a1a; line-height: 1.6; }
+
+    .doc-header { background: #3d1a2e; color: #f9f0f4; padding: 48px 32px 40px; border-bottom: 4px solid #d4839a; }
+    .doc-header__eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #d4839a; margin-bottom: 10px; }
+    .doc-header h1 { font-size: clamp(22px, 4vw, 36px); font-weight: 700; margin-bottom: 12px; }
+    .doc-header p { font-size: 15px; color: #c0a0ac; max-width: 640px; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .section-title { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #a0405a; margin: 52px 0 18px; padding-bottom: 8px; border-bottom: 1px solid #e5d0d6; }
+    .section-title:first-of-type { margin-top: 0; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+    .img-card { background: #fff; border: 1px solid #e8d8dc; border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .img-card--accent { border-left: 4px solid #d4839a; }
+    .img-card__header { display: flex; align-items: center; gap: 10px; }
+    .img-card__num { width: 26px; height: 26px; background: #3d1a2e; color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .img-card__label { font-size: 13px; font-weight: 700; }
+    .img-card__path { font-family: "Courier New", monospace; font-size: 12px; background: #f6edf0; color: #80304a; padding: 6px 10px; border-radius: 5px; word-break: break-all; }
+    .img-card__desc { font-size: 13.5px; color: #444; }
+    .img-card__spec { font-size: 12px; color: #777; display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .tag { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .tag--size   { background: #e8f4e8; color: #2d6a2d; }
+    .tag--ratio  { background: #e8eef8; color: #1a3d7c; }
+    .tag--format { background: #fdf0e0; color: #8a4a00; }
+    .tag--tip    { background: #fdf4f4; color: #842020; }
+    .tag--ok     { background: #f0fdf4; color: #15803d; }
+    .tag--rosa   { background: #fdf0f4; color: #a0304a; }
+
+    .note-box { background: #fff7f9; border: 1px solid #f0c8d4; border-left: 4px solid #d4839a; border-radius: 8px; padding: 16px 20px; margin-top: 20px; font-size: 13.5px; color: #6a2030; }
+    .note-box strong { color: #3d1020; }
+    .note-box--warn { background: #fffbf2; border: 1px solid #f0d8a0; border-left-color: #c8a040; color: #5a4020; }
+    .note-box--warn strong { color: #3a2800; }
+
+    .index-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 40px; }
+    .index-bar a { font-size: 12px; font-weight: 600; padding: 6px 14px; background: #fff; border: 1px solid #e8d8dc; border-radius: 20px; color: #6a3040; text-decoration: none; transition: background .15s, color .15s; }
+    .index-bar a:hover { background: #3d1a2e; color: #fff; border-color: #3d1a2e; }
+
+    .ba-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ba-demo .img-card:first-child { border-color: #d8b0b8; }
+    .ba-demo .img-card:last-child  { border-color: #b8d0c8; }
+
+    .hs-map { background: #fff; border: 1px solid #e8d8dc; border-radius: 10px; padding: 20px 22px; }
+    .hs-map h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .hs-map ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .hs-map li { font-size: 13.5px; color: #444; display: flex; gap: 10px; }
+    .hs-map li::before { content: "+"; width: 22px; height: 22px; background: #3d1a2e; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+
+    .sensitiv-alert { background: #fff7f9; border: 2px solid #d4839a; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; font-size: 14px; color: #5a1030; }
+    .sensitiv-alert strong { color: #3d1020; display: block; margin-bottom: 6px; font-size: 15px; }
+
+    @media (max-width: 600px) { .ba-demo { grid-template-columns: 1fr; } .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="doc-header">
+  <p class="doc-header__eyebrow">Norino Website — Documentazione tecnica</p>
+  <h1>Guida alle immagini<br />Pagina: Punto Rosa · Supporto Oncologico</h1>
+  <p>File di riferimento: <code>punto-rosa.html</code> — Per ogni riquadro immagine viene indicato il soggetto da fotografare, le dimensioni, il percorso file e le linee guida di sensibilità richieste.</p>
+</div>
+
+<div class="container">
+
+  <!-- AVVISO SENSIBILITÀ -->
+  <div class="sensitiv-alert">
+    <strong>⚠ Linee guida di sensibilità per le foto del Punto Rosa</strong>
+    Questa pagina è dedicata a pazienti oncologiche. Tutte le immagini devono essere scelte con la massima attenzione e rispetto:
+    <ul style="margin-top:10px;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;">
+      <li>Nessuna immagine che mostri dolore, sofferenza o disagio fisico visibile.</li>
+      <li>Le espressioni devono essere dignitose, serene o leggermente sorridenti — mai forzatamente allegre.</li>
+      <li>Se si mostrano capelli radi o assenti, farlo sempre in un contesto di cura e non di esposizione del problema.</li>
+      <li>Le pazienti riprese devono aver firmato un consenso specifico per uso su sito web oncologico.</li>
+      <li>Preferire foto autentiche di clienti reali — non stock con persone che recitano malattia.</li>
+    </ul>
+  </div>
+
+  <div class="index-bar">
+    <a href="#og">OG / Social</a>
+    <a href="#hero">Hero</a>
+    <a href="#banner">Banner inline</a>
+    <a href="#ba">Prima / Durante</a>
+    <a href="#split">Sezione protocollo</a>
+    <a href="#hotspot">Hotspot spazio</a>
+    <a href="#storie">Storie clienti</a>
+  </div>
+
+
+  <!-- ══════════════════════════ 1. OG ══════════════════════════ -->
+  <p class="section-title" id="og">1 — Immagine OG (Social Share)</p>
+  <div class="card-grid">
+    <div class="img-card img-card--accent">
+      <div class="img-card__header">
+        <div class="img-card__num">OG</div>
+        <span class="img-card__label">Open Graph — Punto Rosa</span>
+      </div>
+      <div class="img-card__path">img/og-image-punto-rosa.jpg</div>
+      <p class="img-card__desc">
+        Immagine di anteprima per condivisioni social e WhatsApp. Deve comunicare cura, delicatezza e speranza — non malattia. Soggetto consigliato: una donna con aspetto sereno e dignitoso, eventualmente con il fiocco rosa simbolo del protocollo e il logo Norino. Tavolozza rosata e calda. Nessun elemento clinico-ospedaliero.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1200×630 px</span>
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--rosa">Tono empatico — no immagini ospedaliere</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 2. HERO ══════════════════════════ -->
+  <p class="section-title" id="hero">2 — Hero Header (1 immagine principale)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Immagine verticale singola affiancata al testo del hero. È la prima cosa che la paziente vede: deve trasmettere forte vicinanza emotiva, cura e speranza.
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">H</div>
+        <span class="img-card__label">Immagine hero Punto Rosa</span>
+      </div>
+      <div class="img-card__path">img/punto-rosa-hero.jpg</div>
+      <p class="img-card__desc">
+        Donna serena nel salone Norino, in un contesto caldo e accogliente. Può essere: una paziente seduta con lo sguardo fiducioso, una mano del professionista che prende cura di lei, o un ritratto di donna con capelli o parrucca ben curata che irradia dignità. Luce morbida e calda. Sfondo sfumato o interno del salone.
+        <br /><br />
+        Evitare: attrezzature mediche visibili, espressioni di tristezza, capelli assenti in primo piano. Il messaggio deve essere <em>"sei al sicuro, sei accudita"</em>.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">480×640 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--ok">loading: eager — qualità massima</span>
+        <span class="tag tag--rosa">Tono dolce, empatico, positivo</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 3. BANNER INLINE ══════════════════════════ -->
+  <p class="section-title" id="banner">3 — Banner "Punto Rosa" — immagini inline nel titolo</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Il banner editoriale ha 2 piccole foto circolari inserite nel titolo: una accanto a <em>"team certificato"</em> e una accanto a <em>"Wellness 3T IONIX"</em>.
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B1</div>
+        <span class="img-card__label">Inline — "Team Certificato OTI"</span>
+      </div>
+      <div class="img-card__path">img/banner-team-oti.jpg</div>
+      <p class="img-card__desc">
+        Piccola foto circolare accanto a <em>"team certificato"</em>. Soggetto: il team Norino del Punto Rosa in posa professionale (parrucchiere, estetista, nutrizionista), oppure un dettaglio di attestato OTI o diploma, oppure la tessera/certificazione Punto Rosa. Atmosfera professionale e rassicurante.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 1920×1080 px</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B2</div>
+        <span class="img-card__label">Inline — "Wellness 3T IONIX"</span>
+      </div>
+      <div class="img-card__path">img/banner-wellness-ionix.jpg</div>
+      <p class="img-card__desc">
+        Piccola foto circolare accanto a <em>"Wellness 3T IONIX"</em>. Soggetto: il dispositivo semi-permanente Wellness 3T IONIX (prodotto) su superficie neutra, oppure il logo del brand, oppure un dettaglio del prodotto applicato che mostra la sua leggerezza e naturalezza.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 800×590 px</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 4. PRIMA / DURANTE ══════════════════════════ -->
+  <p class="section-title" id="ba">4 — Slider "Prima &amp; Durante" (confronto)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    A differenza delle altre pagine (Prima/Dopo), qui lo slider confronta la paziente <strong>prima dell'inizio della terapia</strong> e <strong>durante la terapia</strong> con il Wellness semi-permanente aplikato. Non è un "prima brutta / dopo bella" — è un "eravamo qui con te e ci siamo ancora".
+  </p>
+  <div class="ba-demo">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">P</div>
+        <span class="img-card__label">PRIMA — Inizio percorso</span>
+      </div>
+      <div class="img-card__path">img/punto-rosa-prima.jpg</div>
+      <p class="img-card__desc">
+        La paziente all'inizio del percorso Punto Rosa — prima dell'applicazione del Wellness 3T IONIX, ma già in un contesto di cura. Capelli naturali (possibilmente già un po' radi o in transizione). Espressione serena, ambiente salone. <strong>Non usare immagini di sofferenza o disagio.</strong>
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--rosa">Espressione dignitosa — no sofferenza</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">D</div>
+        <span class="img-card__label">DURANTE — Con Wellness applicato</span>
+      </div>
+      <div class="img-card__path">img/punto-rosa-durante.jpg</div>
+      <p class="img-card__desc">
+        La stessa paziente durante la terapia, con il Wellness 3T IONIX semi-permanente applicato. L'aspetto è naturale, curato, dignitoso. La paziente sorride o ha un'espressione tranquilla. Stessa inquadratura e luce della foto "Prima". Il messaggio è: <em>"durante la terapia, sei sempre te stessa"</em>.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--ok">Aspetto naturale, dignitoso — Wellness invisibile</span>
+      </div>
+    </div>
+  </div>
+  <div class="note-box">
+    <strong>Nota importante:</strong> Questo slider non è un semplice "prima brutta/dopo bella" — racconta l'accompagnamento durante la terapia. Le foto devono essere scelte con cura e preferibilmente essere scattate con la stessa paziente a distanza di tempo nel percorso. Il consenso informato scritto per uso oncologico è obbligatorio.
+  </div>
+
+
+  <!-- ══════════════════════════ 5. SEZIONE SERVIZIO ══════════════════════════ -->
+  <p class="section-title" id="split">5 — Sezione Protocollo (foto verticale)</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S</div>
+        <span class="img-card__label">Cabina riservata — foto aspirazionale</span>
+      </div>
+      <div class="img-card__path">img/punto-rosa-cabina.jpg</div>
+      <p class="img-card__desc">
+        Foto verticale di alta qualità dello spazio dedicato alle pazienti Punto Rosa. Soggetto consigliato: la cabina riservata allestita con cura, oppure la paziente seduta in un momento di tranquillità con la professionista accanto. Atmosfera intima, calda, rassicurante. Nessuna attrezzatura medica invasiva visibile.
+        <br /><br />
+        Accanto alla foto è presente il badge <strong>"Prodotti ipoallergenici certificati"</strong>: può essere utile includere qualche prodotto sullo sfondo o su un vassoio.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">800×1000 px</span>
+        <span class="tag tag--ratio">4:5 verticale</span>
+        <span class="tag tag--rosa">Atmosfera intima e rassicurante</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 6. HOTSPOT ══════════════════════════ -->
+  <p class="section-title" id="hotspot">6 — Hotspot Interattivo — Spazio Dedicato</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Una foto orizzontale dello spazio Punto Rosa con 3 punti cliccabili (+) che descrivono: il dispositivo Wellness 3T IONIX, il team multidisciplinare OTI, lo spazio riservato.
+  </p>
+
+  <div class="hs-map">
+    <h4>Posizione dei 3 hotspot sulla foto</h4>
+    <ul>
+      <li><strong>Hotspot 1 (top:32%, left:58%)</strong> — <em>"Wellness 3T IONIX"</em>: il punto deve cadere sul dispositivo o sul prodotto semi-permanente visibile nella foto — può essere sul tavolo degli attrezzi o sullo scaffale prodotti.</li>
+      <li><strong>Hotspot 2 (top:48%, left:44%)</strong> — <em>"Team Multidisciplinare OTI"</em>: il punto deve cadere sulla professionista (o sul team) visibile nell'immagine — idealmente la mano del professionista che si prende cura della paziente.</li>
+      <li><strong>Hotspot 3 (top:62%, left:52%)</strong> — <em>"Spazio Riservato"</em>: il punto deve cadere su un elemento architettonico dello spazio — la porta chiusa, il divisorio, la finestra con tende — che comunica privacy e intimità.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:16px">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">Hs</div>
+        <span class="img-card__label">Foto spazio Punto Rosa</span>
+      </div>
+      <div class="img-card__path">img/punto-rosa-spazio.jpg</div>
+      <p class="img-card__desc">
+        Foto ambientale orizzontale dello spazio dedicato alle pazienti Punto Rosa. Deve mostrare: il dispositivo Wellness 3T IONIX, una figura professionale (non necessariamente il volto), e l'atmosfera riservata e accogliente della cabina. Luci calde, colori tenui (rosa cipria, beige, bianco). Nessun paziente visibile — solo lo spazio e gli strumenti.
+        <br /><br />
+        In alternativa: la professionista in azione con una paziente (di spalle o di profilo discreto), con il dispositivo visibile in primo piano o a lato.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--rosa">Colori caldi e tenui — ambiente protetto</span>
+        <span class="tag tag--tip">I 3 hotspot devono cadere su elementi leggibili — pianificare la composizione</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 7. STORIE CLIENTI ══════════════════════════ -->
+  <p class="section-title" id="storie">7 — Slider "Le Loro Storie" (6 foto)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Slider orizzontale con 6 foto che raccontano il percorso delle pazienti. Non si alternano solo risultati estetici, ma <strong>momenti del percorso</strong>: durante la terapia, subito dopo, a 3 mesi, a 6 mesi, la transizione alle extension Glamour, ecc.
+  </p>
+
+  <div class="note-box note-box--warn" style="margin-bottom:20px;">
+    <strong>Prima di fotografare:</strong> Ottenere il consenso scritto specifico per pazienti oncologiche. Il modulo deve specificare chiaramente l'uso delle immagini (sito web, social, materiale promozionale) e deve essere firmato in un momento di lucidità, non durante la terapia attiva.
+  </div>
+
+  <div class="card-grid">
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S1</div>
+        <span class="img-card__label">Durante la terapia — Wellness applicato</span>
+      </div>
+      <div class="img-card__path">img/storia-durante-terapia.jpg</div>
+      <p class="img-card__desc">
+        Paziente durante la chemioterapia con il Wellness 3T IONIX già applicato. Aspetto naturale e curato. Può essere seduta in salone o in un contesto quotidiano (non ospedaliero). Espressione serena o leggermente sorridente.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--rosa">No contesto ospedaliero</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S2</div>
+        <span class="img-card__label">Post chemioterapia — risultato</span>
+      </div>
+      <div class="img-card__path">img/storia-post-chemo.jpg</div>
+      <p class="img-card__desc">
+        La paziente subito dopo la fine della chemioterapia: capelli corti in ricrescita, ma curati e dignitosi. Espressione di sollievo e speranza. Può mostrare il risultato di un'acconciatura Norino su capelli corti. Atmosfera di rinascita.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S3</div>
+        <span class="img-card__label">Microlinea a 3 mesi dalla fine terapia</span>
+      </div>
+      <div class="img-card__path">img/storia-microlinea-3mesi.jpg</div>
+      <p class="img-card__desc">
+        La paziente 3 mesi dopo la fine della terapia, già con il Microlinea System che integra la ricrescita. Capelli più folti e naturali. Espressione di fiducia ritrovata. Può essere lo stesso soggetto delle foto precedenti per mostrare il percorso nel tempo.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--ok">Ideale se è la stessa paziente in momenti diversi</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S4</div>
+        <span class="img-card__label">Transizione a extension Glamour</span>
+      </div>
+      <div class="img-card__path">img/storia-transizione-glamour.jpg</div>
+      <p class="img-card__desc">
+        Fase avanzata del percorso: la paziente ha ricresciuto abbastanza da passare alle extension Glamour. Capelli lunghi e voluminosi. Espressione di gioia autentica — il simbolo del percorso compiuto. Trasformazione completa.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--ok">Foto più positiva e aspirazionale dello slider</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S5</div>
+        <span class="img-card__label">Skincare oncologica OTI — viso</span>
+      </div>
+      <div class="img-card__path">img/storia-skincare-oti.jpg</div>
+      <p class="img-card__desc">
+        Sessione di skincare oncologica: estetista OTI che applica prodotti ipoallergenici sul viso della paziente. Inquadratura ravvicinata sulle mani e sul viso curato. Atmosfera di cura e attenzione. Mostra la dimensione estetica olistica del protocollo Punto Rosa.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S6</div>
+        <span class="img-card__label">Ritratto finale — femminilità ritrovata</span>
+      </div>
+      <div class="img-card__path">img/storia-ritratto-finale.jpg</div>
+      <p class="img-card__desc">
+        Chiusura dello slider: un ritratto di donna serena, sorridente, capelli curati — il simbolo del percorso Punto Rosa compiuto. Non importa la lunghezza dei capelli: ciò che conta è l'espressione di dignità, fiducia e femminilità ritrovata. La foto più emozionante del sito.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--rosa">La foto più emozionante — chiude il percorso narrativo</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- RIEPILOGO -->
+  <p class="section-title">Riepilogo — Tutti i file immagine (punto-rosa.html)</p>
+  <div class="img-card" style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#f6edf0;text-align:left;">
+          <th style="padding:10px 12px;border-bottom:2px solid #e5d0d6;">#</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #e5d0d6;">Percorso file</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #e5d0d6;">Dimensioni</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #e5d0d6;">Soggetto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">OG</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/og-image-punto-rosa.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1200×630 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Immagine social share — tono empatico</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">H</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/punto-rosa-hero.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">480×640 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hero — donna serena, cura e speranza</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">B1</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/banner-team-oti.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Banner inline — team certificato OTI</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">B2</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/banner-wellness-ionix.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×590 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Banner inline — dispositivo Wellness 3T IONIX</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">P</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/punto-rosa-prima.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Durante — inizio percorso</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">D</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/punto-rosa-durante.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Durante — Wellness applicato</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">S</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/punto-rosa-cabina.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×1000 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Sezione protocollo — cabina riservata</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hs</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#80304a;">img/punto-rosa-spazio.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hotspot — spazio dedicato con dispositivi</td></tr>
+        <tr><td style="padding:8px 12px;">S1–S6</td><td style="padding:8px 12px;font-family:monospace;color:#80304a;">img/storia-[nome].jpg</td><td style="padding:8px 12px;">600×800 px</td><td style="padding:8px 12px;">Slider storie — 6 momenti del percorso</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box" style="margin-top:20px;">
+    <strong>Totale immagini da produrre: 15 foto.</strong> Per il Punto Rosa si raccomanda una sessione fotografica dedicata con una fotografa specializzata in ritratti emozionali e contesti oncologici. Le immagini stock non sono adatte per questa sezione — l'autenticità è fondamentale per la fiducia delle pazienti.
+  </div>
+
+</div>
+</body>
+</html>

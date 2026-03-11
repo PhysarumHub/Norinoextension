@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google Consent Mode v2 — default (letto da localStorage prima di GTM) -->
+    <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var c=null;
+      try{var r=localStorage.getItem('norino_consent');if(r)c=JSON.parse(r);}catch(e){}
+      var a=c&&c.analytics?'granted':'denied';
+      var m=c&&c.marketing?'granted':'denied';
+      gtag('consent','default',{
+        ad_storage:m,
+        ad_user_data:m,
+        ad_personalization:m,
+        analytics_storage:a,
+        personalization_storage:m,
+        functionality_storage:'granted',
+        security_storage:'granted'
+      });
+    })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5J2RDB59');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Norino — Pagina non trovata</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href="Favicon.png" />
+    <link rel="apple-touch-icon" href="Favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J2RDB59"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand"><img src="img/logonorino.png" alt="Norino" class="nav__logo" /></a>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <div class="nav__cta">
+          <button class="btn btn--dark" data-action="open-consult">Consulenza gratuita</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══ 404 ═══ -->
+    <main class="page-404">
+      <span class="page-404__code">404</span>
+      <h1 class="page-404__title">Pagina non trovata</h1>
+      <p class="page-404__sub">La pagina che stai cercando non esiste o è stata spostata.</p>
+      <a href="index.html" class="btn btn--dark">Torna alla home</a>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer" id="contatti">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-name"><img src="img/logonorino.png" alt="Norino" class="footer__logo" /></div>
+          <p>Extension di qualità superiore. Il metodo unico che trasforma il tuo look in meno di 3 ore.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="index.html">Extension capelli</a></li>
+            <li><a href="diradamento.html">Infoltimento</a></li>
+            <li><a href="punto-rosa.html">Punto Rosa</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Legale</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="termini.html">Termini e condizioni</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; 2026 Norino — Tutti i diritti riservati</span>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/cookie-consent.js" defer></script>
+  </body>
+</html>

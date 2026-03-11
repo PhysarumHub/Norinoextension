@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guida alle immagini — Diradamento · Norino</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f4f0; color: #1a1a1a; line-height: 1.6; }
+
+    .doc-header { background: #1a1a1a; color: #f5f4f0; padding: 48px 32px 40px; border-bottom: 4px solid #c8a97a; }
+    .doc-header__eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #c8a97a; margin-bottom: 10px; }
+    .doc-header h1 { font-size: clamp(22px, 4vw, 36px); font-weight: 700; margin-bottom: 12px; }
+    .doc-header p { font-size: 15px; color: #aaa; max-width: 640px; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .section-title { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #c8a97a; margin: 52px 0 18px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+    .section-title:first-of-type { margin-top: 0; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+    .img-card { background: #fff; border: 1px solid #e0ddd6; border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .img-card--accent { border-left: 4px solid #c8a97a; }
+    .img-card__header { display: flex; align-items: center; gap: 10px; }
+    .img-card__num { width: 26px; height: 26px; background: #1a1a1a; color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .img-card__label { font-size: 13px; font-weight: 700; }
+    .img-card__path { font-family: "Courier New", monospace; font-size: 12px; background: #f0ede6; color: #7a5c2a; padding: 6px 10px; border-radius: 5px; word-break: break-all; }
+    .img-card__desc { font-size: 13.5px; color: #444; }
+    .img-card__spec { font-size: 12px; color: #777; display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .tag { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .tag--size   { background: #e8f4e8; color: #2d6a2d; }
+    .tag--ratio  { background: #e8eef8; color: #1a3d7c; }
+    .tag--format { background: #fdf0e0; color: #8a4a00; }
+    .tag--tip    { background: #fdf4f4; color: #842020; }
+    .tag--ok     { background: #f0fdf4; color: #15803d; }
+
+    .note-box { background: #fffbf2; border: 1px solid #f0d8a0; border-left: 4px solid #c8a97a; border-radius: 8px; padding: 16px 20px; margin-top: 20px; font-size: 13.5px; color: #5a4020; }
+    .note-box strong { color: #3a2800; }
+
+    .index-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 40px; }
+    .index-bar a { font-size: 12px; font-weight: 600; padding: 6px 14px; background: #fff; border: 1px solid #ddd; border-radius: 20px; color: #444; text-decoration: none; transition: background .15s, color .15s; }
+    .index-bar a:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+    .ba-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ba-demo .img-card:first-child { border-color: #d0b8b8; }
+    .ba-demo .img-card:last-child  { border-color: #b8d0b8; }
+
+    .hs-map { background: #fff; border: 1px solid #e0ddd6; border-radius: 10px; padding: 20px 22px; }
+    .hs-map h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .hs-map ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .hs-map li { font-size: 13.5px; color: #444; display: flex; gap: 10px; }
+    .hs-map li::before { content: "+"; width: 22px; height: 22px; background: #1a1a1a; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+
+    @media (max-width: 600px) { .ba-demo { grid-template-columns: 1fr; } .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="doc-header">
+  <p class="doc-header__eyebrow">Norino Website — Documentazione tecnica</p>
+  <h1>Guida alle immagini<br />Pagina: Infoltimento &amp; Diradamento</h1>
+  <p>File di riferimento: <code>diradamento.html</code> — Per ogni riquadro immagine viene indicato il soggetto da fotografare, le dimensioni consigliate e il percorso file.</p>
+</div>
+
+<div class="container">
+
+  <div class="index-bar">
+    <a href="#og">OG / Social</a>
+    <a href="#hero">Hero</a>
+    <a href="#banner">Banner inline</a>
+    <a href="#ba">Prima / Dopo</a>
+    <a href="#split">Sezione servizio</a>
+    <a href="#hotspot">Hotspot cabina</a>
+    <a href="#casi">Casi di successo</a>
+  </div>
+
+
+  <!-- ══════════════════════════ 1. OG ══════════════════════════ -->
+  <p class="section-title" id="og">1 — Immagine OG (Social Share)</p>
+  <div class="card-grid">
+    <div class="img-card img-card--accent">
+      <div class="img-card__header">
+        <div class="img-card__num">OG</div>
+        <span class="img-card__label">Open Graph — Diradamento</span>
+      </div>
+      <div class="img-card__path">img/og-image-diradamento.jpg</div>
+      <p class="img-card__desc">
+        Immagine che appare quando la pagina viene condivisa su WhatsApp, Facebook ecc. Deve comunicare fiducia e trasformazione: una donna con capelli folti e naturali, eventualmente con logo Norino e scritta "Infoltimento &amp; Diradamento". Toni caldi, sfondo elegante.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1200×630 px</span>
+        <span class="tag tag--format">JPG</span>
+        <span class="tag tag--tip">Testo importante al centro — i bordi vengono tagliati su mobile</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 2. HERO ══════════════════════════ -->
+  <p class="section-title" id="hero">2 — Hero Header (1 immagine principale)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    A differenza della homepage con gallery a 9 foto, la pagina Diradamento usa una <strong>singola immagine orizzontale</strong> a tutta larghezza affiancata al testo.
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">H</div>
+        <span class="img-card__label">Immagine hero principale</span>
+      </div>
+      <div class="img-card__path">img/diradamento-hero.jpg</div>
+      <p class="img-card__desc">
+        Donna con capelli visibilmente folti, sani e naturali — risultato dell'infoltimento Microlinea. Inquadratura dalla testa alle spalle, leggera angolazione (tre quarti). Espressione sicura, fiduciosa, sorriso tranquillo. Sfondo neutro o sfumato pulito. Deve trasmettere il messaggio <em>"torna a sentirti te stessa"</em>.
+        <br /><br />
+        <strong>Importante:</strong> questa immagine è molto grande e immediatamente visibile al caricamento della pagina (loading="eager"): deve avere la massima qualità.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">900×506 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--ok">loading: eager — massima qualità, ottimizzata per velocità</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 3. BANNER INLINE ══════════════════════════ -->
+  <p class="section-title" id="banner">3 — Banner "Il Metodo Norino" — immagini inline nel titolo</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Come nell'homepage, il banner editoriale contiene <strong>2 piccole foto circolari integrate nel titolo</strong>, una accanto a "tricologia" e una accanto a "Microlinea".
+  </p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B1</div>
+        <span class="img-card__label">Inline — "Tricologia"</span>
+      </div>
+      <div class="img-card__path">img/banner-tricologia.jpg</div>
+      <p class="img-card__desc">
+        Foto circolare accanto alla parola <em>"tricologia"</em>. Soggetto consigliato: un close-up di cuoio capelluto in analisi dermatoscopica, oppure uno strumento tricologo professionale, o una foto macro di follicoli capillari sani. Atmosfera clinica e rassicurante.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 1920×1080 px</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">B2</div>
+        <span class="img-card__label">Inline — "Microlinea"</span>
+      </div>
+      <div class="img-card__path">img/banner-microlinea.jpg</div>
+      <p class="img-card__desc">
+        Foto circolare accanto alla parola <em>"Microlinea"</em>. Soggetto: la rete biocompatibile Microlinea su un tavolo (prodotto da vicino), oppure la applicazione sulla testa con dettaglio invisibile, o il logo/prodotto Microlinea System. Deve comunicare innovazione e naturalezza.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">66×66 px (mostrata)</span>
+        <span class="tag tag--size">Originale: 800×590 px</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 4. PRIMA / DOPO ══════════════════════════ -->
+  <p class="section-title" id="ba">4 — Slider Prima / Dopo (diradamento)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Il cursore confronta la zona di diradamento prima e dopo il trattamento con Microlinea System. <strong>La coppia di immagini deve essere della stessa persona, stessa inquadratura, stessa luce.</strong>
+  </p>
+  <div class="ba-demo">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">P</div>
+        <span class="img-card__label">PRIMA — Zona frontale diradata</span>
+      </div>
+      <div class="img-card__path">img/diradamento-prima.jpg</div>
+      <p class="img-card__desc">
+        La paziente <em>prima</em> del trattamento. La zona frontale o il vertex (cima della testa) sono visibilmente diradati — capelli radi, cuoio capelluto visibile. Inquadratura dall'alto o frontale che mette in evidenza il problema. Espressione neutra, luce omogenea.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--tip">Zona diraadata chiaramente visibile — non nasconderla</span>
+      </div>
+    </div>
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">D</div>
+        <span class="img-card__label">DOPO — Infoltimento con Microlinea</span>
+      </div>
+      <div class="img-card__path">img/diradamento-dopo.jpg</div>
+      <p class="img-card__desc">
+        La stessa persona <em>dopo</em> l'applicazione del Microlinea System. Capelli folti, naturali e invisibili — nessuna traccia della rete. Identica posa e inquadratura della foto "Prima". Il contrasto deve essere evidente ma credibile.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--ok">La trasformazione deve essere autentica e dimostrabile</span>
+      </div>
+    </div>
+  </div>
+  <div class="note-box">
+    <strong>Attenzione:</strong> Per questa sezione è particolarmente importante usare foto reali di clienti Norino (con consenso firmato), non immagini stock. La credibilità del Prima/Dopo è il principale elemento di conversione dell'intera pagina.
+  </div>
+
+
+  <!-- ══════════════════════════ 5. SEZIONE SERVIZIO ══════════════════════════ -->
+  <p class="section-title" id="split">5 — Sezione Servizio Editoriale (foto verticale)</p>
+  <div class="card-grid">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">S</div>
+        <span class="img-card__label">Microlinea applicata — foto aspirazionale</span>
+      </div>
+      <div class="img-card__path">img/microlinea-applicata.jpg</div>
+      <p class="img-card__desc">
+        Foto verticale di alta qualità — donna di profilo o frontale con capelli folti e naturali dopo l'applicazione del Microlinea System. La rete deve essere completamente invisibile. Inquadratura dalla testa fino alle spalle o alla vita. Sfondo elegante, luce naturale.
+        <br /><br />
+        Accanto alla foto è presente il badge <strong>"Rete biocompatibile traspirante"</strong>: il risultato deve sembrare identico ai capelli naturali.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">800×1000 px</span>
+        <span class="tag tag--ratio">4:5 verticale</span>
+        <span class="tag tag--tip">La rete NON deve essere visibile — naturalezza assoluta</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 6. HOTSPOT ══════════════════════════ -->
+  <p class="section-title" id="hotspot">6 — Hotspot Interattivo — Cabina Privata</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Una foto orizzontale della cabina privata Norino con 3 punti cliccabili (+) che descrivono: la poltrona ergonomica, il dermatoscopio digitale, e l'ambiente riservato.
+  </p>
+
+  <div class="hs-map">
+    <h4>Posizione dei 3 hotspot sulla foto</h4>
+    <ul>
+      <li><strong>Hotspot 1 (top:58%, left:40%)</strong> — <em>"Poltrona Ergonomica"</em>: il punto deve cadere sulla poltrona reclinabile della cabina — idealmente al centro dell'immagine dove si vede chiaramente il sedile professionale.</li>
+      <li><strong>Hotspot 2 (top:30%, left:62%)</strong> — <em>"Dermatoscopio Digitale"</em>: il punto deve cadere sullo strumento diagnostico (microscopio digitale o tablet con analisi) visibile in secondo piano o sul carrello.</li>
+      <li><strong>Hotspot 3 (top:22%, left:30%)</strong> — <em>"Ambiente Privato"</em>: il punto deve cadere su un dettaglio architettonico che trasmette privacy — una porta, un divisorio, o la zona relax della cabina insonorizzata.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:16px">
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">Hc</div>
+        <span class="img-card__label">Foto cabina privata Norino</span>
+      </div>
+      <div class="img-card__path">img/cabina-privata.jpg</div>
+      <p class="img-card__desc">
+        Foto ambientale orizzontale della cabina privata dove avviene il trattamento. Deve mostrare: la poltrona ergonomica reclinabile, il dermatoscopio o strumenti diagnostici, e l'atmosfera riservata e professionale. Luci calde, arredamento pulito. Nessun altro cliente visibile. Atmosfera del tipo "studio medico-estetico premium".
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">1920×1080 px</span>
+        <span class="tag tag--ratio">16:9 orizzontale</span>
+        <span class="tag tag--tip">Tutti e 3 gli hotspot devono cadere su elementi identificabili — pianificare in anticipo la composizione</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════ 7. CASI DI SUCCESSO ══════════════════════════ -->
+  <p class="section-title" id="casi">7 — Slider "Casi di Successo" (6 foto)</p>
+  <p style="font-size:13.5px;color:#555;margin-bottom:16px;">
+    Slider orizzontale con 6 casi reali che mostrano la varietà dei risultati: uomini, donne, zone diverse, tecniche diverse. Devono essere aggiornati periodicamente con nuovi casi.
+  </p>
+  <div class="card-grid">
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C1</div>
+        <span class="img-card__label">Donna — zona frontale</span>
+      </div>
+      <div class="img-card__path">img/caso-donna-frontale.jpg</div>
+      <p class="img-card__desc">
+        Caso donna con diradamento sulla zona frontale (attaccatura alta). Foto del risultato finale con Microlinea — attaccatura naturale e capelli folti. Inquadratura frontale, viso parzialmente visibile o solo capelli dall'alto.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C2</div>
+        <span class="img-card__label">Uomo — zona vertex</span>
+      </div>
+      <div class="img-card__path">img/caso-uomo-vertex.jpg</div>
+      <p class="img-card__desc">
+        Caso uomo con diradamento sul vertex (cima della testa). Foto prima/dopo o solo del risultato. Mostra che il servizio è disponibile anche per uomini — importante differenziatore. Foto dall'alto che mostra la copertura naturale.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C3</div>
+        <span class="img-card__label">Ricrescita post-terapia</span>
+      </div>
+      <div class="img-card__path">img/caso-ricrescita.jpg</div>
+      <p class="img-card__desc">
+        Caso di ricrescita dei capelli dopo terapia medica o chemioterapia. Mostra capelli corti che ricrescono sani — connessione con il percorso Punto Rosa. Foto in studio, luce morbida.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C4</div>
+        <span class="img-card__label">Microlinea — vista laterale</span>
+      </div>
+      <div class="img-card__path">img/caso-microlinea-laterale.jpg</div>
+      <p class="img-card__desc">
+        Vista laterale del risultato Microlinea: capelli mossi o lisci, zona temporale e attaccatura completamente naturali. Mostra come il risultato regge anche da angolazioni diverse, non solo frontali.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C5</div>
+        <span class="img-card__label">Volume Folium — prima e dopo</span>
+      </div>
+      <div class="img-card__path">img/caso-volume-folium.jpg</div>
+      <p class="img-card__desc">
+        Caso specifico Volume Folium per alopecia androgenetica. Ideale: un dittico prima/dopo in un'unica immagine (split verticale), oppure solo il risultato finale con capelli molto più folti. Risultato in 10 giorni — comunicarlo nel soggetto.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--ok">Eventuale split Prima/Dopo in un'unica card</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-card__header">
+        <div class="img-card__num">C6</div>
+        <span class="img-card__label">Infoltimento completo — risultato finale</span>
+      </div>
+      <div class="img-card__path">img/caso-infoltimento-finale.jpg</div>
+      <p class="img-card__desc">
+        Il caso più d'impatto — la trasformazione più completa tra i 6. Donna (o uomo) con capelli pienissimi, naturali e luminosi dopo infoltimento totale. Deve concludere lo slider con la massima impressione visiva.
+      </p>
+      <div class="img-card__spec">
+        <span class="tag tag--size">600×800 px</span>
+        <span class="tag tag--ratio">3:4 verticale</span>
+        <span class="tag tag--tip">L'immagine più d'impatto dello slider — chiude con un "wow"</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note-box" style="margin-top:8px;">
+    <strong>Consenso clienti:</strong> Tutte le foto dei "Casi di successo" richiedono il consenso scritto del cliente per uso fotografico a fini commerciali (sito web, social media). Archiviare i moduli firmati.
+  </div>
+
+
+  <!-- RIEPILOGO -->
+  <p class="section-title">Riepilogo — Tutti i file immagine (diradamento.html)</p>
+  <div class="img-card" style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#f0ede6;text-align:left;">
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">#</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Percorso file</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Dimensioni</th>
+          <th style="padding:10px 12px;border-bottom:2px solid #ddd;">Soggetto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">OG</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/og-image-diradamento.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1200×630 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Immagine social share</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">H</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/diradamento-hero.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">900×506 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hero principale — donna capelli folti</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">B1</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/banner-tricologia.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Banner inline — tricologia</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">B2</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/banner-microlinea.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×590 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Banner inline — Microlinea System</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">P</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/diradamento-prima.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Dopo — zona diraadata</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">D</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/diradamento-dopo.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Slider Prima/Dopo — Microlinea applicata</td></tr>
+        <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">S</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/microlinea-applicata.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">800×1000 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Sezione servizio — foto verticale aspirazionale</td></tr>
+        <tr style="background:#fafaf8;"><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hc</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-family:monospace;color:#7a5c2a;">img/cabina-privata.jpg</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">1920×1080 px</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">Hotspot — cabina privata insonorizzata</td></tr>
+        <tr><td style="padding:8px 12px;">C1–C6</td><td style="padding:8px 12px;font-family:monospace;color:#7a5c2a;">img/caso-[nome].jpg</td><td style="padding:8px 12px;">600×800 px</td><td style="padding:8px 12px;">Slider casi di successo — 6 risultati reali</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box" style="margin-top:20px;">
+    <strong>Totale immagini da produrre: 15 foto</strong> (escluso logo e favicon già condivisi con l'homepage). Ottimizzare tutti i file in WebP o JPG progressivo prima del caricamento in produzione.
+  </div>
+
+</div>
+</body>
+</html>
