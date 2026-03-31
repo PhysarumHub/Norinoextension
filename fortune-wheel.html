@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Gira la Chioma — Norino</title>
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fortune-wheel.css">
+</head>
+<body>
+
+<div class="phone-frame">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="wheel-title">✦ Gira la chioma</div>
+    <div class="spins-badge">
+      <span class="heart">♥</span>
+      <span id="spins-count">1</span> SPIN
+    </div>
+  </div>
+
+  <!-- Prize display -->
+  <div class="prize-display" id="prize-display">
+    <span class="question-mark">?</span>
+    <span class="prize-icon" id="prize-icon"></span>
+  </div>
+
+  <!-- Wheel -->
+  <div class="wheel-wrapper">
+    <div class="wheel-container">
+      <div class="pointer"></div>
+      <div class="wheel-glow"></div>
+      <div class="wheel" id="wheel">
+        <canvas id="wheel-canvas" width="1040" height="1040"></canvas>
+      </div>
+      <div class="spin-btn-wrapper">
+        <button class="spin-btn" id="spin-btn">Gira</button>
+      </div>
+    </div>
+  </div>1
+
+  <!-- Win overlay -->
+  <div class="win-overlay" id="win-overlay">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="win-card">
+      <div class="win-icon" id="win-icon"></div>
+      <div class="win-label">Hai vinto</div>
+      <div class="win-prize" id="win-prize-text"></div>
+      <button class="collect-btn" id="collect-btn">Ritira il premio</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/fb-pixel.js" defer></script>
+<script src="js/fortune-wheel.js"></script>
+</body>
+</html>

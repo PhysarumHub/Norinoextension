@@ -1,0 +1,420 @@
+/* ══════════════════════════════════════════════════
+   FORTUNE WHEEL — Norino Brand
+   Responsive: desktop = phone mockup, mobile = full screen
+   ══════════════════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+body   { touch-action: none; }
+
+:root {
+  /* Brand */
+  --terra:     #C89565;
+  --terra-hi:  #DDB07A;
+  --terra-lo:  #A67848;
+  --rose:      #C87060;
+  --dark:      #181818;
+  --cream:     #FDFDFD;
+  --silver-hi: #EBEBEB;
+  --silver-md: #D4D4D4;
+  --label:     #888888;
+  --bg:        #F9F5F2;
+  --font:      Georgia, 'Times New Roman', serif;
+
+  /* Layout tokens — overridden per breakpoint */
+  --wheel-size:  600px;
+  --prize-mt:    28px;
+  --wrapper-mt:  50px;
+  --btn-size:    80px;
+}
+
+/* ── Base ────────────────────────────────────────── */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── Phone Frame (desktop mockup) ────────────────── */
+.phone-frame {
+  width: 390px;
+  height: 844px;
+  background: linear-gradient(160deg, var(--cream) 0%, #F7EFE8 40%, #F2E8DE 70%, #F7EFE8 100%);
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -80px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(200,149,101,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.phone-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(200,112,96,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 12px;
+  flex-shrink: 0;
+}
+
+.wheel-title {
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+}
+
+.spins-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  font-family: var(--font);
+}
+
+.spins-badge .heart {
+  color: var(--rose);
+  font-size: 15px;
+}
+
+/* ── Prize Display ───────────────────────────────── */
+.prize-display {
+  position: relative;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--cream);
+  margin: var(--prize-mt) auto 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--silver-md);
+  font-style: italic;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(200,149,101,0.12);
+}
+
+.prize-display.revealed {
+  box-shadow: 0 4px 30px rgba(200,149,101,0.25), 0 0 0 1px rgba(200,149,101,0.2);
+  transform: scale(1.05);
+}
+
+.prize-display .prize-icon {
+  font-size: 48px;
+  display: none;
+}
+
+.prize-display.revealed .prize-icon {
+  display: block;
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.prize-display.revealed .question-mark {
+  display: none;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── Wheel ───────────────────────────────────────── */
+.wheel-wrapper {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: auto;
+  /* sink 1/4 of the wheel below the frame bottom */
+  margin-bottom: calc(var(--wheel-size) * -0.25);
+  flex-shrink: 0;
+}
+
+.wheel-container {
+  position: relative;
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+  flex-shrink: 0;
+}
+
+.wheel {
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 4.5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  will-change: transform;
+}
+
+.wheel canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pointer {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 28px solid var(--terra);
+  z-index: 20;
+  filter: drop-shadow(0 3px 6px rgba(200,149,101,0.4));
+}
+
+/* ── Spin Button ─────────────────────────────────── */
+.spin-btn-wrapper {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.spin-btn {
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(180deg, var(--terra-hi) 0%, var(--terra) 50%, var(--terra-lo) 100%);
+  box-shadow: 0 6px 25px rgba(200,149,101,0.5), 0 2px 8px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.25);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.spin-btn::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 50px; height: 20px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+}
+
+.spin-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(200,149,101,0.6), 0 2px 8px rgba(0,0,0,0.12), inset 0 2px 4px rgba(255,255,255,0.25);
+}
+.spin-btn:active:not(:disabled) { transform: scale(0.97); }
+.spin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Wheel Glow ──────────────────────────────────── */
+.wheel-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(200,149,101,0.18);
+  pointer-events: none;
+}
+
+/* ── Win Overlay ─────────────────────────────────── */
+.win-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(24,24,24,0.65);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+  padding: 24px;
+}
+
+.win-overlay.active {
+  display: flex;
+  animation: fadeInOverlay 0.4s ease;
+}
+
+@keyframes fadeInOverlay {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.win-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 36px 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 320px;
+}
+
+@keyframes slideUp {
+  0%   { transform: translateY(60px) scale(0.9); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.win-card .win-icon   { font-size: 60px; margin-bottom: 10px; }
+
+.win-card .win-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--label);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.win-card .win-prize {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+.collect-btn {
+  background: linear-gradient(180deg, var(--terra-hi) 0%, var(--terra) 100%);
+  border: none;
+  color: var(--cream);
+  font-family: var(--font);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  padding: 14px 0;
+  width: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(200,149,101,0.4);
+  transition: all 0.2s ease;
+}
+.collect-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(200,149,101,0.55);
+}
+
+/* ── Confetti ────────────────────────────────────── */
+#confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — Mobile full-screen
+   ══════════════════════════════════════════════════ */
+
+/* Large phones and small tablets in portrait */
+@media (max-width: 430px) {
+  :root {
+    --wheel-size: 115vw;
+    --prize-mt:   clamp(10px, 2.5vh, 28px);
+    --btn-size:   70px;
+  }
+
+  .phone-frame {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .header {
+    padding: 16px 20px 8px;
+    padding-top: max(16px, env(safe-area-inset-top));
+  }
+
+  .wheel-title { font-size: 15px; }
+  .spins-badge { font-size: 11px; padding: 7px 14px; }
+
+  .prize-display {
+    width: 88px;
+    height: 88px;
+  }
+
+  .prize-display .prize-icon { font-size: 42px; }
+
+  .pointer {
+    border-left-width:  12px;
+    border-right-width: 12px;
+    border-top-width:   22px;
+  }
+
+  .spin-btn { font-size: 12px; }
+
+  .win-card { padding: 28px 24px; }
+  .win-card .win-icon  { font-size: 52px; }
+  .win-card .win-prize { font-size: 22px; }
+}
+
+/* Very small phones (iPhone SE = 375×667) */
+@media (max-width: 380px) {
+  :root {
+    --wheel-size: 118vw;
+    --prize-mt:   10px;
+    --btn-size:   64px;
+  }
+
+  .prize-display {
+    width: 76px;
+    height: 76px;
+  }
+  .prize-display .prize-icon { font-size: 36px; }
+}

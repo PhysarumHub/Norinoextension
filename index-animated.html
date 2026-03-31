@@ -41,6 +41,459 @@
     <link rel="icon" type="image/png" href="Favicon.png" />
     <link rel="apple-touch-icon" href="Favicon.png" />
     <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+      /* ══════════════════════════════════════════════
+         NORINO ANIMATED — Emil Kowalski design system
+         ══════════════════════════════════════════════ */
+
+      /* ── Custom easing curves ─────────────────────
+         Never use built-in easings — they're too weak.
+         Use strong custom curves for intentional feel.      */
+      :root {
+        --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+        --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+        --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+      }
+
+      /* ── Navbar entrance ──────────────────────────
+         Slides down from -8px, fades in. Fast: 250ms.
+         Users see this once per visit — animate it.    */
+      .site-nav {
+        animation: nav-enter 300ms cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+      @keyframes nav-enter {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Nav links: clip-path underline on hover */
+      .nav__links a {
+        position: relative;
+        text-decoration: none;
+      }
+      .nav__links a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 200ms var(--ease-out);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .nav__links a:hover::after {
+          clip-path: inset(0 0% 0 0);
+        }
+      }
+
+      /* ── Button press feedback ────────────────────
+         Every pressable element must feel responsive.
+         scale(0.97) gives tactile confirmation.        */
+      .btn {
+        transition: transform 150ms var(--ease-out),
+                    box-shadow 150ms var(--ease-out),
+                    background-color 150ms var(--ease-out);
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+
+      /* ── Hero text: staggered entrance ───────────
+         Award → Title → Sub → Social proof → CTA.
+         Each 80ms apart — short enough to feel snappy,
+         long enough to see the cascade.
+         NOTE: cubic-bezier() inline — var() in animation
+         shorthand is unreliable across browsers.         */
+      .hero__award {
+        animation: fade-up 500ms cubic-bezier(0.23, 1, 0.32, 1) 80ms both;
+      }
+      .hero-header__title {
+        animation: fade-up 600ms cubic-bezier(0.23, 1, 0.32, 1) 160ms both;
+      }
+      .hero-header__sub {
+        animation: fade-up 500ms cubic-bezier(0.23, 1, 0.32, 1) 260ms both;
+      }
+      .hero__social-proof {
+        animation: fade-up 500ms cubic-bezier(0.23, 1, 0.32, 1) 340ms both;
+      }
+      .hero-header__cta {
+        animation: fade-up 500ms cubic-bezier(0.23, 1, 0.32, 1) 420ms both;
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── Hero gallery: clip-path reveal ──────────
+         Images reveal from bottom via clip-path.
+         Stagger across the 3 columns.               */
+      .hero-header__gallery {
+        --col-delay: 0ms;
+      }
+      .hero-header__col:nth-child(1) { --col-delay: 100ms; }
+      .hero-header__col:nth-child(2) { --col-delay: 200ms; }
+      .hero-header__col:nth-child(3) { --col-delay: 300ms; }
+
+      .hero-header__img-wrap {
+        overflow: hidden;
+        border-radius: inherit;
+      }
+      .hero-header__img-wrap img {
+        animation: img-reveal 700ms var(--ease-out) var(--col-delay, 100ms) both;
+      }
+      .hero-header__img-wrap img {
+        animation-name: img-reveal;
+        animation-duration: 700ms;
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        animation-fill-mode: both;
+      }
+      .hero-header__col:nth-child(1) .hero-header__img-wrap:nth-child(1) img { animation-delay: 100ms; }
+      .hero-header__col:nth-child(1) .hero-header__img-wrap:nth-child(2) img { animation-delay: 200ms; }
+      .hero-header__col:nth-child(1) .hero-header__img-wrap:nth-child(3) img { animation-delay: 300ms; }
+      .hero-header__col:nth-child(2) .hero-header__img-wrap:nth-child(1) img { animation-delay: 220ms; }
+      .hero-header__col:nth-child(2) .hero-header__img-wrap:nth-child(2) img { animation-delay: 320ms; }
+      .hero-header__col:nth-child(2) .hero-header__img-wrap:nth-child(3) img { animation-delay: 420ms; }
+      .hero-header__col:nth-child(3) .hero-header__img-wrap:nth-child(1) img { animation-delay: 340ms; }
+      .hero-header__col:nth-child(3) .hero-header__img-wrap:nth-child(2) img { animation-delay: 440ms; }
+      .hero-header__col:nth-child(3) .hero-header__img-wrap:nth-child(3) img { animation-delay: 540ms; }
+
+      @keyframes img-reveal {
+        from {
+          clip-path: inset(0 0 100% 0);
+          transform: scale(1.04);
+        }
+        to {
+          clip-path: inset(0 0 0% 0);
+          transform: scale(1);
+        }
+      }
+
+      /* Gallery images: subtle scale on hover */
+      @media (hover: hover) and (pointer: fine) {
+        .hero-header__img-wrap img {
+          transition: transform 500ms var(--ease-out);
+        }
+        .hero-header__img-wrap:hover img {
+          transform: scale(1.03);
+        }
+      }
+
+      /* ── Scroll-triggered animations ─────────────
+         Elements start invisible. JS adds [data-visible]
+         via IntersectionObserver when they enter view.   */
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 500ms var(--ease-out),
+                    transform 500ms var(--ease-out);
+      }
+      [data-animate="from-left"] {
+        transform: translateX(-24px);
+      }
+      [data-animate="from-right"] {
+        transform: translateX(24px);
+      }
+      [data-animate="scale-in"] {
+        transform: scale(0.97);
+        opacity: 0;
+        transition: opacity 400ms var(--ease-out),
+                    transform 400ms var(--ease-out);
+      }
+      [data-animate][data-visible] {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Staggered children via CSS delay variable */
+      [data-stagger] > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 400ms var(--ease-out),
+                    transform 400ms var(--ease-out);
+        transition-delay: var(--item-delay, 0ms);
+      }
+      [data-stagger][data-visible] > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      [data-stagger] > *:nth-child(1) { --item-delay: 0ms;   }
+      [data-stagger] > *:nth-child(2) { --item-delay: 60ms;  }
+      [data-stagger] > *:nth-child(3) { --item-delay: 120ms; }
+      [data-stagger] > *:nth-child(4) { --item-delay: 180ms; }
+      [data-stagger] > *:nth-child(5) { --item-delay: 240ms; }
+      [data-stagger] > *:nth-child(6) { --item-delay: 300ms; }
+
+      /* ── Banner: editorial text reveal ───────────*/
+      .banner__title {
+        transition: opacity 600ms var(--ease-out),
+                    transform 600ms var(--ease-out);
+      }
+
+      /* ── Ext-split: image hover ───────────────── */
+      .ext-split__img-wrap {
+        overflow: hidden;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .ext-split__img-wrap img {
+          transition: transform 600ms var(--ease-out);
+        }
+        .ext-split__img-wrap:hover img {
+          transform: scale(1.03);
+        }
+      }
+
+      /* ── Ext features: hover lift ─────────────── */
+      @media (hover: hover) and (pointer: fine) {
+        .ext-split__features li {
+          transition: transform 200ms var(--ease-out);
+        }
+        .ext-split__features li:hover {
+          transform: translateX(4px);
+        }
+      }
+
+      /* ── Hotspot buttons: pulse ───────────────── */
+      .hs-btn {
+        transition: transform 150ms var(--ease-out),
+                    box-shadow 150ms var(--ease-out);
+      }
+      .hs-btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: currentColor;
+        opacity: 0.2;
+        animation: hs-pulse 2.4s var(--ease-out) infinite;
+      }
+      @keyframes hs-pulse {
+        0%, 100% { transform: scale(1);   opacity: 0.2; }
+        50%       { transform: scale(1.6); opacity: 0;   }
+      }
+      .hs-btn:active {
+        transform: scale(0.94);
+      }
+
+      /* Popup: scale from trigger (origin-aware), not from center */
+      .hs-popup {
+        transform-origin: top left;
+        transition: opacity 200ms var(--ease-out),
+                    transform 200ms var(--ease-out);
+      }
+      .hs-popup:not(.active) {
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+      }
+      .hs-popup.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* ── Trends cards: hover lift + scale ──────── */
+      @media (hover: hover) and (pointer: fine) {
+        .trends__card {
+          transition: transform 250ms var(--ease-out),
+                      box-shadow 250ms var(--ease-out);
+        }
+        .trends__card:hover {
+          transform: translateY(-4px) scale(1.02);
+          box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+        .trends__card img {
+          transition: transform 500ms var(--ease-out);
+        }
+        .trends__card:hover img {
+          transform: scale(1.05);
+        }
+      }
+      .trends__card {
+        overflow: hidden;
+      }
+
+      /* Trend arrow buttons */
+      .trends__arrow {
+        transition: transform 150ms var(--ease-out),
+                    background-color 150ms var(--ease-out);
+      }
+      .trends__arrow:active {
+        transform: scale(0.94);
+      }
+
+      /* ── FAQ: smooth accordion ────────────────────
+         Transitions, not keyframes — rapidly triggerable */
+      .faq-item__body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 250ms var(--ease-out);
+      }
+      .faq-item__body-inner {
+        overflow: hidden;
+      }
+      .faq-item.open .faq-item__body {
+        grid-template-rows: 1fr;
+      }
+      .faq-item__btn {
+        transition: color 200ms var(--ease-out);
+      }
+      .faq-item__icon svg {
+        transition: transform 250ms var(--ease-out);
+      }
+      .faq-item.open .faq-item__icon svg {
+        transform: rotate(45deg);
+      }
+
+      /* ── Timeline: scroll alternating sides ──────*/
+      .tl-item--left  [data-animate="tl"] { transform: translateX(-28px); opacity: 0; }
+      .tl-item--right [data-animate="tl"] { transform: translateX(28px);  opacity: 0; }
+      [data-animate="tl"] {
+        transition: opacity 500ms var(--ease-out),
+                    transform 500ms var(--ease-out);
+      }
+      [data-animate="tl"][data-visible] {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Timeline node: scale in */
+      .tl-node {
+        transition: transform 400ms var(--ease-out),
+                    opacity 400ms var(--ease-out);
+      }
+      .tl-item:not([data-inview]) .tl-node {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      .tl-item[data-inview] .tl-node {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      /* ── CTA final: scale + glow ──────────────── */
+      .cta-final__inner {
+        transition: opacity 500ms var(--ease-out),
+                    transform 500ms var(--ease-out);
+      }
+
+      /* ── Sticky CTA: slide up after delay ─────── */
+      .sticky-cta {
+        animation: sticky-enter 400ms cubic-bezier(0.23, 1, 0.32, 1) 1.2s both;
+      }
+      @keyframes sticky-enter {
+        from { transform: translateY(100%); opacity: 0; }
+        to   { transform: translateY(0);   opacity: 1; }
+      }
+
+      /* ── Consult modal: scale from center ──────── */
+      .consult-overlay {
+        transition: opacity 250ms var(--ease-out);
+      }
+      .consult-overlay:not(.active) {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .consult-overlay.active {
+        opacity: 1;
+      }
+      .consult-modal {
+        transition: transform 300ms var(--ease-drawer),
+                    opacity 300ms var(--ease-out);
+        transform-origin: center bottom;
+      }
+      .consult-overlay:not(.active) .consult-modal {
+        transform: scale(0.96) translateY(12px);
+        opacity: 0;
+      }
+      .consult-overlay.active .consult-modal {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      /* ── Social proof avatars: stagger on load ─── */
+      .social-proof__avatar {
+        animation: avatar-pop 400ms cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+      .social-proof__avatar:nth-child(1) { animation-delay: 500ms; }
+      .social-proof__avatar:nth-child(2) { animation-delay: 560ms; }
+      .social-proof__avatar:nth-child(3) { animation-delay: 620ms; }
+      .social-proof__avatar:nth-child(4) { animation-delay: 680ms; }
+      @keyframes avatar-pop {
+        from { opacity: 0; transform: scale(0.7) translateY(6px); }
+        to   { opacity: 1; transform: scale(1)   translateY(0);   }
+      }
+
+      /* ── Footer links: hover underline ─────────── */
+      @media (hover: hover) and (pointer: fine) {
+        .footer__col a {
+          position: relative;
+          text-decoration: none;
+          transition: color 150ms;
+        }
+        .footer__col a::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: currentColor;
+          clip-path: inset(0 100% 0 0);
+          transition: clip-path 200ms var(--ease-out);
+        }
+        .footer__col a:hover::after {
+          clip-path: inset(0 0% 0 0);
+        }
+      }
+
+      /* ── Social icon hover ──────────────────────── */
+      @media (hover: hover) and (pointer: fine) {
+        .footer__socials a {
+          transition: transform 200ms var(--ease-out),
+                      opacity 200ms;
+        }
+        .footer__socials a:hover {
+          transform: translateY(-3px);
+          opacity: 0.7;
+        }
+      }
+
+      /* ══════════════════════════════════════════════
+         PREFERS-REDUCED-MOTION
+         Fewer and gentler — never zero. Keep opacity
+         transitions that aid comprehension. Remove
+         movement and position animations.
+         ══════════════════════════════════════════════ */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-delay: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+        [data-animate],
+        [data-stagger] > * {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .tl-item:not([data-inview]) .tl-node {
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -149,8 +602,8 @@
 
     <!-- ═══ BANNER EDITORIALE ═══ -->
     <section class="banner" id="il-metodo" aria-label="Il metodo Norino">
-      <span class="banner__label">Il metodo Norino</span>
-      <h2 class="banner__title">
+      <span class="banner__label" data-animate>Il metodo Norino</span>
+      <h2 class="banner__title" data-animate>
         Capelli europei selezionati,
         tecnologia
         <span class="banner__dot">
@@ -171,12 +624,12 @@
 
     <!-- ═══ BEFORE / AFTER SLIDER ═══ -->
     <section class="ba-section" id="risultati" aria-label="Confronto prima e dopo">
-      <div class="ba-header">
+      <div class="ba-header" data-animate>
         <span class="n-eyebrow">Risultati reali</span>
         <h2 class="n-heading">La differenza che <em>vedi</em>.</h2>
       </div>
 
-      <div id="baWrap" class="ba-wrap">
+      <div id="baWrap" class="ba-wrap" data-animate="scale-in">
         <img alt="Dopo — chioma con extension Norino" width="1920" height="1080"
              src="/img/NOR%20__%20Hero%20GL.png"
              class="ba-after" sizes="(max-width: 860px) 90vw, 860px" loading="lazy" decoding="async" />
@@ -197,12 +650,12 @@
         <div class="ba-label ba-label--dopo">Dopo</div>
       </div>
 
-      <p class="n-caption">Trascina per confrontare · Applicazione completata in 2–4 ore</p>
+      <p class="n-caption" data-animate>Trascina per confrontare · Applicazione completata in 2–4 ore</p>
     </section>
 
     <!-- ═══ SEZIONE EXTENSION EDITORIALE ═══ -->
     <section class="ext-split" aria-label="Le nostre extension">
-      <div class="ext-split__text">
+      <div class="ext-split__text" data-animate="from-left">
         <span class="n-eyebrow">Hair Extensions</span>
         <h2 class="ext-split__title">
           Lunghezza naturale.<br /><em>Volume straordinario.</em>
@@ -210,7 +663,7 @@
         <p class="ext-split__sub">
           Norino è top salone europeo Hairdreams: il leader mondiale nelle extension. Ogni ciocca è in capello europeo selezionato per idratazione e morbidezza, abbinata digitalmente al tuo colore e applicata con la tecnica più adatta alla tua salute capillare.
         </p>
-        <ul class="ext-split__features">
+        <ul class="ext-split__features" data-stagger>
           <li>
             <span class="ext-feat__icon">⬡</span>
             <div>
@@ -235,7 +688,7 @@
         </ul>
       </div>
 
-      <div class="ext-split__img-wrap">
+      <div class="ext-split__img-wrap" data-animate="from-right">
         <img
           src="/img/NOR%20__%20Hero%20GL.png"
           alt="Extension capelli Norino — risultato naturale"
@@ -249,7 +702,7 @@
     <!-- ═══ HOTSPOT INTERATTIVO ═══ -->
     <section class="hotspot-section" aria-label="Il servizio Glamour Extension">
       <div class="hotspot-box">
-        <div class="hotspot-wrap">
+        <div class="hotspot-wrap" data-animate="scale-in">
           <img alt="Glamour Extension Norino — dettaglio applicazione" width="1920" height="1080"
                src="/img/NOR%20__%20Hero%20GL.png"
                sizes="(max-width: 640px) 100vw, 90vw" loading="lazy" decoding="async" />
@@ -281,7 +734,7 @@
           <div id="hsOverlay" class="hs-overlay"></div>
         </div>
 
-        <div class="hotspot-bar">
+        <div class="hotspot-bar" data-animate>
           <div class="hotspot-bar__text">
             <h3 class="n-subheading">Consulenza empatica in ambiente riservato.</h3>
             <p>Prima dell'applicazione valutiamo la salute capillare e scegliamo insieme la tecnica ideale. Nessuna formula standard: solo extension progettate, abbinate e applicate <em>esclusivamente per te</em>.</p>
@@ -293,7 +746,7 @@
 
     <!-- ═══ TRENDS SLIDER ═══ -->
     <section class="trends" id="tendenze" aria-label="Ultime tendenze">
-      <div class="trends__header">
+      <div class="trends__header" data-animate>
         <div>
           <span class="n-eyebrow">Ultime tendenze</span>
           <h2 class="n-heading">I look del <em>momento</em>.</h2>
@@ -308,7 +761,7 @@
         </div>
       </div>
 
-      <div class="trends__track" id="trendsTrack">
+      <div class="trends__track" id="trendsTrack" data-stagger>
         <div class="trends__card">
           <img alt="Trend — extension bionde lunghe" loading="lazy" decoding="async"
                src="/img/NOR%20__%20Hero%20GL.png" />
@@ -338,7 +791,7 @@
 
     <!-- ═══ CTA FINALE ═══ -->
     <section class="cta-final" aria-label="Prenota una consulenza">
-      <div class="cta-final__inner">
+      <div class="cta-final__inner" data-animate="scale-in">
         <span class="cta-final__eyebrow">Consulenza Gratuita</span>
         <h2 class="cta-final__title">
           Il tuo nuovo look<br />
@@ -367,7 +820,7 @@
     <section class="tl-section" id="storia" aria-label="La storia di Norino">
       <div class="tl-section__inner">
 
-        <div class="tl-header">
+        <div class="tl-header" data-animate>
           <span class="n-eyebrow">Dal 1995 ad oggi</span>
           <h2 class="tl-header__title">Una storia <em>scritta</em><br />con le mani.</h2>
           <p class="tl-header__sub">Ogni anno, una svolta. Ogni scelta, un passo verso l'eccellenza.</p>
@@ -379,7 +832,7 @@
           <!-- 1 LEFT -->
           <div class="tl-item tl-item--left">
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">1995</span>
                 <h3 class="tl-title">Le Origini</h3>
                 <p class="tl-text">La passione nasce in un piccolo barbiere a Bivona (AG), dove Norino scopre da adolescente il potere trasformativo del capello.</p>
@@ -394,7 +847,7 @@
             <div class="tl-half tl-half--ghost"></div>
             <div class="tl-node"><div class="tl-node__pill"><span>2001–06</span></div></div>
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">2001 · 2006</span>
                 <h3 class="tl-title">Milano & Formazione d'Élite</h3>
                 <p class="tl-text">Direttore Stilistico nel Quadrilatero della Moda, poi specializzazione a Londra e Graz nelle tecniche di extension più avanzate al mondo.</p>
@@ -405,7 +858,7 @@
           <!-- 3 LEFT featured -->
           <div class="tl-item tl-item--left tl-item--featured">
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">2012 · 2015</span>
                 <h3 class="tl-title">Premi & Celebrities</h3>
                 <p class="tl-text">1° Premio Internazionale Hairdreams in più edizioni consecutive. Firma le acconciature di artiste e volti noti sui palcoscenici più prestigiosi d'Italia.</p>
@@ -421,7 +874,7 @@
             <div class="tl-half tl-half--ghost"></div>
             <div class="tl-node"><div class="tl-node__pill"><span>2019–22</span></div></div>
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">2019 · 2022</span>
                 <h3 class="tl-title">I Saloni Norino</h3>
                 <p class="tl-text">Apertura Milano (2019) e Bergamo (2022): due poli d'eccellenza dedicati alle extension di alta qualità.</p>
@@ -432,7 +885,7 @@
           <!-- 5 LEFT -->
           <div class="tl-item tl-item--left">
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">2023</span>
                 <h3 class="tl-title">Il Parrucchiere delle Emozioni</h3>
                 <p class="tl-text">Norino diventa autore, raccontando il suo metodo unico tra tecnica raffinata e sensibilità umana in un libro che ispira professionisti.</p>
@@ -447,7 +900,7 @@
             <div class="tl-half tl-half--ghost"></div>
             <div class="tl-node"><div class="tl-node__pill"><span>Oggi</span></div></div>
             <div class="tl-half">
-              <div class="tl-body">
+              <div class="tl-body" data-animate="tl">
                 <span class="tl-body__year">Oggi</span>
                 <h3 class="tl-title">Metodo Unico Norino</h3>
                 <p class="tl-text">Infoltimento, extension avanzate e Punto Rosa per l'oncologia. Un team unito da una missione: rendere ogni donna fiera del proprio riflesso.</p>
@@ -463,11 +916,11 @@
     <!-- ═══ FAQ ═══ -->
     <section class="faq-section" id="faq" aria-label="Domande frequenti">
       <div class="faq-section__inner">
-        <div class="faq-section__header">
+        <div class="faq-section__header" data-animate>
           <span class="n-eyebrow">FAQ</span>
           <h2 class="faq-section__title">Domande frequenti</h2>
         </div>
-        <div class="faq-list" id="faqList">
+        <div class="faq-list" id="faqList" data-stagger>
 
           <div class="faq-item">
             <button class="faq-item__btn" aria-expanded="false">
@@ -534,7 +987,7 @@
     </section>
 
     <!-- ═══ FOOTER ═══ -->
-    <footer class="site-footer" id="contatti">
+    <footer class="site-footer" id="contatti" data-animate>
       <div class="footer__inner">
         <div class="footer__brand">
           <div class="footer__brand-name"><img src="img/logonorino.png" alt="Norino" class="footer__logo" /></div>
@@ -675,5 +1128,144 @@
     <script src="js/fb-pixel.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/cookie-consent.js" defer></script>
+
+    <script>
+      /* ══════════════════════════════════════════════
+         SCROLL ANIMATIONS — IntersectionObserver
+         Pure CSS transitions, not keyframes.
+         Interruptible: if you scroll fast, elements
+         snap to visible without restarting from zero.
+
+         CRITICAL: double-rAF before setting up observers.
+         Without this, elements already in the viewport
+         get data-visible set in the same frame as the
+         initial paint — browser skips the transition.
+         ══════════════════════════════════════════════ */
+      (function () {
+        // Respect reduced motion — bail early, elements are already visible via CSS
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        function setupObservers() {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.setAttribute('data-visible', '');
+                  observer.unobserve(entry.target); // once: true — never re-animate
+                }
+              });
+            },
+            {
+              threshold: 0.1,
+              rootMargin: '0px 0px -60px 0px',
+            }
+          );
+
+          // Observe [data-animate] elements
+          document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+          // Observe [data-stagger] containers — children animate via CSS
+          document.querySelectorAll('[data-stagger]').forEach((el) => observer.observe(el));
+
+          // Timeline nodes: separate observer for tl-item (to mark parent [data-inview])
+          const tlObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.setAttribute('data-inview', '');
+                  tlObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+          document.querySelectorAll('.tl-item').forEach((el) => tlObserver.observe(el));
+        }
+
+        // Double rAF: first frame paints opacity:0 state,
+        // second frame starts observing so transitions fire visibly.
+        requestAnimationFrame(() => requestAnimationFrame(setupObservers));
+
+        /* ── Scroll-progress: tl-line fill ─────────
+           The timeline vertical line fills as you scroll.
+           Uses transform: scaleY() — GPU-accelerated.   */
+        const tlLine = document.querySelector('.tl-line');
+        if (tlLine) {
+          const tlTrack = document.querySelector('.tl-track');
+          tlLine.style.transformOrigin = 'top center';
+          tlLine.style.transition = 'transform 0.1s linear';
+          tlLine.style.transform = 'scaleY(0)';
+
+          const updateLine = () => {
+            const rect = tlTrack.getBoundingClientRect();
+            const scrolled = Math.max(0, -rect.top);
+            const total = rect.height - window.innerHeight;
+            const progress = total > 0 ? Math.min(1, scrolled / total) : 0;
+            tlLine.style.transform = `scaleY(${progress})`;
+          };
+
+          window.addEventListener('scroll', updateLine, { passive: true });
+          updateLine();
+        }
+
+        /* ── Navbar: add shadow on scroll ──────────
+           Subtle elevation change, not a full re-paint. */
+        const nav = document.getElementById('site-nav');
+        if (nav) {
+          const onScroll = () => {
+            nav.style.boxShadow = window.scrollY > 20
+              ? '0 1px 0 rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05)'
+              : '';
+          };
+          window.addEventListener('scroll', onScroll, { passive: true });
+        }
+
+        /* ── FAQ: smooth accordion ──────────────────
+           Override default main.js behavior to use the
+           CSS grid-template-rows transition instead.    */
+        const faqList = document.getElementById('faqList');
+        if (faqList) {
+          faqList.addEventListener('click', (e) => {
+            const btn = e.target.closest('.faq-item__btn');
+            if (!btn) return;
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            // Close all
+            faqList.querySelectorAll('.faq-item.open').forEach((el) => {
+              el.classList.remove('open');
+              el.querySelector('.faq-item__btn').setAttribute('aria-expanded', 'false');
+            });
+            // Open clicked (if it wasn't already open)
+            if (!isOpen) {
+              item.classList.add('open');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+            // Prevent main.js double-handling
+            e.stopPropagation();
+          });
+        }
+
+        /* ── Hotspot popups: animated open/close ─── */
+        document.querySelectorAll('.hs-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.pop;
+            const popup = document.getElementById(id);
+            if (!popup) return;
+            // Close others
+            document.querySelectorAll('.hs-popup.active').forEach((p) => p.classList.remove('active'));
+            popup.classList.add('active');
+          });
+        });
+        document.querySelectorAll('.hs-close').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.close;
+            document.getElementById(id)?.classList.remove('active');
+          });
+        });
+        document.getElementById('hsOverlay')?.addEventListener('click', () => {
+          document.querySelectorAll('.hs-popup.active').forEach((p) => p.classList.remove('active'));
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -154,6 +154,10 @@
       uiRef.banner.classList.remove('is-visible');
       uiRef.overlay.classList.remove('is-open');
     }
+    /* Notifica gli altri script (es. fb-pixel.js) del nuovo consenso */
+    try {
+      document.dispatchEvent(new CustomEvent('norino:consent', { detail: prefs }));
+    } catch (_) {}
   }
 
   /* ── Open settings modal ── */

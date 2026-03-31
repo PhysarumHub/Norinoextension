@@ -262,6 +262,8 @@ function openConsultPopup() {
   consultGoStep(1, true);
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+  /* FB Pixel: l'utente ha mostrato intenzione di prenotare */
+  if (window.fbq_safe) fbq_safe('track', 'ViewContent', { content_name: 'Popup consulenza' });
 }
 
 function closeConsultPopup() {
@@ -318,6 +320,8 @@ function consultSelectSalon(card) {
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      /* FB Pixel: form consulenza inviato = Lead */
+      if (window.fbq_safe) fbq_safe('track', 'Lead');
       closeConsultPopup();
     });
   }
